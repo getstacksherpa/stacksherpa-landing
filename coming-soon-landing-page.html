@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackSherpa - Coming Soon</title>
+    
+    <!-- Favicon (add after you generate it) -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background: linear-gradient(135deg, #1a3a4d 0%, #2C5F7C 100%);
+            overflow: hidden;
+        }
+
+        html, body {
+            overscroll-behavior: none;
+            /* Prevents the bounce/rubber band effect */
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a3a4d 0%, #2C5F7C 100%);
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 300px;
+            height: auto;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .tagline {
+            font-size: 24px;
+            font-weight: 600;
+            color: #FF6B35;
+            margin-bottom: 30px;
+        }
+        
+        .description {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+        
+        .email-input {
+            flex: 1;
+            padding: 16px 20px;
+            font-size: 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .email-input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .email-input:focus {
+            outline: none;
+            border-color: #FF6B35;
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .submit-btn {
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            background: #FF6B35;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+        }
+        
+        .submit-btn:hover {
+            background: #cc5528;
+            transform: translateY(-2px);
+        }
+        
+        .launch-date {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .social-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .social-link:hover {
+            color: #FF6B35;
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            .tagline {
+                font-size: 20px;
+            }
+            
+            .description {
+                font-size: 16px;
+            }
+            
+            .submit-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Replace with your actual logo path -->
+        <img src="blue_logo.png" alt="StackSherpa" class="logo">
+        
+        <h1>Coming Soon</h1>
+        
+        <p class="tagline">Catch $500 mistakes in 10 seconds</p>
+        
+        <p class="description">
+            AI-powered code review for dbt engineers. 
+            We catch schema drift, missing tests, and expensive SQL patterns 
+            before they break production.
+        </p>
+        
+        <form class="email-form" id="waitlist-form">
+            <input
+                type="text"
+                class="email-input"
+                placeholder="Your Name"
+                required
+                id="name-input"
+            >
+            <input
+                type="email"
+                class="email-input"
+                placeholder="your.email@company.com"
+                required
+                id="email-input"
+            >
+            <button type="submit" class="submit-btn">Join Waitlist</button>
+        </form>
+        
+        <p class="launch-date">Launching January 2026</p>
+        
+        <div class="social-links">
+            <a href="https://github.com/yourusername" class="social-link" target="_blank">GitHub</a>
+            <a href="https://twitter.com/yourusername" class="social-link" target="_blank">Twitter</a>
+            <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+    
+    <script>
+        // Google Apps Script URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRxFpzYAVd2w5sB4SFJx1lpzbL0zN-UWlWH5n4QxelgFReSLTdS3rUfrEbrt6mYUk/exec';
+
+        // Form handling with Google Apps Script
+        document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name-input').value;
+            const email = document.getElementById('email-input').value;
+
+            console.log('Form submitted!');
+            console.log('Name:', name);
+            console.log('Email:', email);
+            console.log('Script URL:', GOOGLE_SCRIPT_URL);
+
+            const payload = {
+                name: name,
+                email: email,
+                timestamp: new Date().toISOString()
+            };
+
+            console.log('Sending payload:', payload);
+
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                console.log('Request sent successfully (no-cors mode)');
+                alert('Thanks for joining!');
+
+                // Clear form
+                document.getElementById('name-input').value = '';
+                document.getElementById('email-input').value = '';
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('Error: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>
