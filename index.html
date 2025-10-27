@@ -808,6 +808,89 @@
         }
 
         /* ==========================================
+           FAQ SECTION
+           ========================================== */
+        #faq {
+            padding: var(--space-2xl) 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: var(--space-md);
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: var(--text-base);
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-sm);
+            transition: color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .faq-question:hover {
+            color: var(--gradient-blue);
+        }
+
+        .faq-icon {
+            font-size: 24px;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: var(--gradient-blue);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 var(--space-md);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 var(--space-md) var(--space-md) var(--space-md);
+        }
+
+        .faq-answer p {
+            font-size: var(--text-sm);
+            line-height: 1.6;
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        /* ==========================================
            ANIMATIONS
            ========================================== */
         @keyframes fadeInUp {
@@ -1376,7 +1459,77 @@
          ========================================== -->
     <section id="faq">
         <div class="container">
-            <!-- FAQ content will go here -->
+            <div class="faq-container">
+                <h2 class="section-headline">Frequently Asked Questions</h2>
+
+                <div class="faq-list">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How is StackSherpa different from CodeRabbit or other AI code review tools?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>CodeRabbit and similar tools are general-purpose - they treat SQL like any other code. StackSherpa is built specifically for dbt and understands data engineering semantics. We parse {{ ref() }} and {{ source() }}, understand schema.yml files, analyze downstream dependencies, and explain business impact of changes. We're specialists, not generalists.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do I need to be a dbt expert to use StackSherpa?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No! StackSherpa is actually great for learning. Our AI comments explain WHY things matter and teach best practices. Many users tell us it's helped their junior engineers level up. If you use dbt, StackSherpa will help you write better models.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What data warehouses do you support?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>StackSherpa works with any data warehouse that dbt supports - Snowflake, BigQuery, Redshift, Databricks, Postgres, and more. We analyze your dbt code, not your warehouse directly, so we're warehouse-agnostic.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How long does a review take?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Most PRs are reviewed in under 10 seconds. Complex PRs with many changed files might take 20-30 seconds. You'll see a 'Review in progress' status check in GitHub, then inline comments appear on your PR automatically.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Is my code secure? Do you store it?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We clone your code temporarily to analyze it, then delete it immediately after the review. We never store your dbt models or SQL. We only keep metadata (file names, line numbers) to post comments. Your code stays in your GitHub repo.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I cancel anytime?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, absolutely. No contracts, no commitments. Cancel from your account dashboard anytime. If you locked in founder pricing (£19/month), that rate is yours forever if you stay subscribed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1447,6 +1600,36 @@
             }
 
             lastScroll = currentScroll;
+        });
+
+        // FAQ Accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+
+            question.addEventListener('click', () => {
+                // Toggle active class on clicked item
+                const isActive = item.classList.contains('active');
+
+                // Optional: Close all other FAQ items (accordion behavior)
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        const otherIcon = otherItem.querySelector('.faq-icon');
+                        otherIcon.textContent = '+';
+                    }
+                });
+
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                    question.querySelector('.faq-icon').textContent = '+';
+                } else {
+                    item.classList.add('active');
+                    question.querySelector('.faq-icon').textContent = '−';
+                }
+            });
         });
     </script>
 </body>
