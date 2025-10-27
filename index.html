@@ -232,6 +232,149 @@
         }
 
         /* ==========================================
+           HERO SECTION
+           ========================================== */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-headline {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            line-height: 1.1;
+            max-width: 800px;
+            margin-bottom: var(--space-md);
+        }
+
+        .hero-subheadline {
+            font-size: 20px;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-top: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-md);
+        }
+
+        .hero-cta .btn-primary,
+        .hero-cta .btn-secondary {
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta .btn-primary:hover,
+        .hero-cta .btn-secondary:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-small-text {
+            font-size: var(--text-xs);
+            color: var(--text-gray);
+            margin-bottom: 80px;
+        }
+
+        .hero-screenshot {
+            max-width: 900px;
+            width: 100%;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .screenshot-placeholder p {
+            color: var(--text-gray);
+            font-size: var(--text-base);
+            margin-top: var(--space-sm);
+        }
+
+        .screenshot-caption {
+            text-align: center;
+            font-size: var(--text-sm);
+            color: var(--text-gray);
+            margin-top: var(--space-md);
+        }
+
+        .floating-badge {
+            position: absolute;
+            top: 120px;
+            right: var(--space-lg);
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--accent-orange);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: var(--text-xs);
+            font-weight: 600;
+            color: var(--accent-orange);
+            animation: pulse 2s infinite;
+            z-index: 10;
+        }
+
+        /* ==========================================
+           ANIMATIONS
+           ========================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* ==========================================
            RESPONSIVE DESIGN
            ========================================== */
         @media (max-width: 768px) {
@@ -267,6 +410,27 @@
             .menu-toggle {
                 display: flex;
             }
+
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-cta .btn-primary,
+            .hero-cta .btn-secondary {
+                width: 100%;
+            }
+
+            .screenshot-placeholder {
+                height: 300px;
+            }
+
+            .floating-badge {
+                top: 80px;
+                right: var(--space-sm);
+                font-size: 12px;
+                padding: 6px 12px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -274,6 +438,18 @@
                 --text-3xl: 32px;
                 --text-2xl: 28px;
                 --text-xl: 24px;
+            }
+
+            .hero-headline {
+                font-size: 32px;
+            }
+
+            .hero-subheadline {
+                font-size: 16px;
+            }
+
+            .screenshot-placeholder {
+                height: 250px;
             }
         }
     </style>
@@ -306,7 +482,48 @@
          ========================================== -->
     <section id="hero">
         <div class="container">
-            <!-- Hero content will go here -->
+            <!-- Floating Badge -->
+            <div class="floating-badge">
+                43 spots left
+            </div>
+
+            <!-- Hero Content -->
+            <div class="hero-content">
+                <h1 class="hero-headline">
+                    Stop Merging PRs That <span class="gradient-text">Break Production</span>
+                </h1>
+
+                <p class="hero-subheadline">
+                    AI code review for dbt engineers. Catches schema drift, missing tests, and expensive SQL mistakes in 10 seconds.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#waitlist" class="btn-primary">Join Waitlist</a>
+                    <a href="#demo" class="btn-secondary">Watch Demo</a>
+                </div>
+
+                <p class="hero-small-text">
+                    Launching January 2026 · No credit card required
+                </p>
+
+                <!-- Product Screenshot -->
+                <div class="hero-screenshot">
+                    <div class="screenshot-placeholder">
+                        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="10" width="80" height="60" rx="4" stroke="#9CA3AF" stroke-width="2" fill="none"/>
+                            <line x1="10" y1="25" x2="90" y2="25" stroke="#9CA3AF" stroke-width="2"/>
+                            <circle cx="20" cy="17.5" r="2.5" fill="#9CA3AF"/>
+                            <circle cx="30" cy="17.5" r="2.5" fill="#9CA3AF"/>
+                            <circle cx="40" cy="17.5" r="2.5" fill="#9CA3AF"/>
+                            <rect x="20" y="35" width="60" height="8" rx="2" fill="#3B82F6" opacity="0.3"/>
+                            <rect x="20" y="48" width="50" height="8" rx="2" fill="#06B6D4" opacity="0.3"/>
+                            <rect x="20" y="61" width="55" height="8" rx="2" fill="#3B82F6" opacity="0.3"/>
+                        </svg>
+                        <p>Product Screenshot Placeholder</p>
+                    </div>
+                    <p class="screenshot-caption">StackSherpa reviews dbt PRs directly in GitHub</p>
+                </div>
+            </div>
         </div>
     </section>
 
