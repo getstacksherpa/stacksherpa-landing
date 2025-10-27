@@ -585,9 +585,12 @@
 
         .pricing-cards {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: minmax(280px, 320px) minmax(300px, 360px) minmax(280px, 320px);
             gap: var(--space-lg);
             align-items: flex-start;
+            justify-content: center;
+            margin-top: var(--space-lg);
+            position: relative; /* For badge positioning */
         }
 
         .pricing-card {
@@ -596,7 +599,7 @@
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 16px;
-            padding: var(--space-lg);
+            padding: 32px 24px; /* Reduced horizontal padding */
             text-align: center;
             position: relative;
             transition: all 0.3s ease;
@@ -620,16 +623,16 @@
         }
 
         .popular-badge {
-            position: absolute;
-            top: -16px;
-            left: 50%;
-            transform: translateX(-50%);
+            display: inline-block;
             background: linear-gradient(135deg, var(--gradient-blue), var(--gradient-teal));
             padding: 6px 20px;
             border-radius: 20px;
-            font-size: var(--text-xs);
+            font-size: 12px;
             font-weight: 600;
             color: white;
+            white-space: nowrap;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
         }
 
         .pricing-tier {
@@ -640,35 +643,37 @@
         }
 
         .pricing-price {
-            font-size: var(--text-2xl);
+            font-size: 32px; /* Reduced from var(--text-2xl) which is 40px */
             font-weight: 700;
-            margin: 20px 0;
+            margin: 16px 0; /* Reduced margin */
             color: var(--text-primary);
+            line-height: 1.2;
         }
 
         .pricing-price-old {
             text-decoration: line-through;
             color: var(--text-gray);
-            font-size: var(--text-lg);
+            font-size: 16px; /* Smaller strikethrough price */
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .pricing-description {
-            font-size: var(--text-sm);
+            font-size: 14px; /* Slightly smaller */
             color: var(--text-gray);
-            margin-bottom: var(--space-md);
+            margin-bottom: 20px;
+            line-height: 1.4;
         }
 
         .pricing-features {
             list-style: none;
             text-align: left;
-            margin: var(--space-md) 0;
-            font-size: var(--text-sm);
+            margin: 20px 0;
+            font-size: 14px; /* Reduced from var(--text-sm) */
         }
 
         .pricing-features li {
-            line-height: 2;
+            line-height: 1.8; /* Reduced from 2 for more compact spacing */
             padding-left: 24px;
             position: relative;
         }
@@ -684,7 +689,9 @@
         .pricing-card .btn-primary,
         .pricing-card .btn-secondary {
             width: 100%;
-            margin-top: var(--space-md);
+            margin-top: 20px;
+            padding: 12px 24px; /* More compact button */
+            font-size: 15px;
         }
 
         /* ==========================================
@@ -1550,8 +1557,9 @@
     </section>
 
     <!-- ==========================================
-         SOLUTION SECTION
+         SOLUTION SECTION (also serves as Features)
          ========================================== -->
+    <span id="features"></span>
     <section id="solution">
         <div class="container">
             <h2 class="section-headline animate-on-scroll">Built for Data Engineering Workflows</h2>
@@ -1678,15 +1686,6 @@
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- ==========================================
-         FEATURES SECTION
-         ========================================== -->
-    <section id="features">
-        <div class="container">
-            <!-- Features content will go here -->
         </div>
     </section>
 
@@ -2191,6 +2190,52 @@
                 });
             });
         }
+
+        // Currency detection - Use £ for UK, $ for everywhere else
+        async function detectAndSetCurrency() {
+            try {
+                // Try to detect user's country via timezone
+                const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                const isUK = timezone.includes('London') || timezone.includes('Europe/London');
+
+                // If not UK, convert £ to $
+                if (!isUK) {
+                    const conversionRate = 1.27; // Approximate GBP to USD rate
+
+                    // Update all pricing elements
+                    document.querySelectorAll('.pricing-price, .pricing-price-old, .founder-pricing-banner').forEach(element => {
+                        let text = element.textContent;
+
+                        // Replace £0 with $0 (free tier)
+                        text = text.replace('£0', '$0');
+
+                        // Replace £19 with $24
+                        text = text.replace('£19', '$24');
+
+                        // Replace £29 with $37
+                        text = text.replace('£29', '$37');
+
+                        // Replace £49 with $62
+                        text = text.replace('£49', '$62');
+
+                        element.textContent = text;
+                    });
+
+                    // Update FAQ text
+                    document.querySelectorAll('.faq-answer').forEach(element => {
+                        let text = element.textContent;
+                        text = text.replace('£19/month', '$24/month');
+                        element.textContent = text;
+                    });
+                }
+            } catch (error) {
+                console.log('Currency detection skipped:', error);
+                // Default to £ if detection fails
+            }
+        }
+
+        // Run currency detection on page load
+        detectAndSetCurrency();
     </script>
 </body>
 </html>
