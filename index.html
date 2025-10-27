@@ -891,6 +891,190 @@
         }
 
         /* ==========================================
+           CTA SECTION
+           ========================================== */
+        #cta {
+            padding: var(--space-2xl) 0;
+            background: rgba(0, 0, 0, 0.02);
+            text-align: center;
+        }
+
+        .cta-headline {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            background: linear-gradient(135deg, var(--gradient-blue), var(--gradient-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-subheadline {
+            font-size: 20px;
+            color: var(--text-gray);
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 48px;
+            font-size: 20px;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--gradient-blue), var(--gradient-teal));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 40px rgba(59, 130, 246, 0.6);
+        }
+
+        .trust-badges {
+            margin-top: var(--space-md);
+            font-size: var(--text-xs);
+            color: var(--text-gray);
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        /* ==========================================
+           WAITLIST FORM SECTION
+           ========================================== */
+        #waitlist {
+            padding: 80px 0;
+        }
+
+        .waitlist-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .waitlist-headline {
+            font-size: var(--text-xl);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+
+        .waitlist-subheadline {
+            font-size: var(--text-sm);
+            color: var(--text-gray);
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .waitlist-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            font-size: var(--text-sm);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-input::placeholder {
+            color: var(--text-gray);
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--gradient-blue);
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236B7280' d='M1.41 0L6 4.59L10.59 0L12 1.41l-6 6l-6-6z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            font-size: var(--text-base);
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--gradient-blue), var(--gradient-teal));
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .form-submit:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.5);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-small-text {
+            font-size: var(--text-xs);
+            color: var(--text-gray);
+            text-align: center;
+            margin-top: var(--space-sm);
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 8px;
+            padding: var(--space-lg);
+            text-align: center;
+            color: #22c55e;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message h3 {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-sm);
+        }
+
+        .success-message p {
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-sm);
+        }
+
+        .success-message a {
+            color: #22c55e;
+            text-decoration: underline;
+        }
+
+        /* ==========================================
            ANIMATIONS
            ========================================== */
         @keyframes fadeInUp {
@@ -1064,6 +1248,19 @@
 
             .screenshot-placeholder {
                 height: 250px;
+            }
+
+            .cta-headline {
+                font-size: 36px;
+            }
+
+            .cta-button {
+                font-size: 18px;
+                padding: 16px 32px;
+            }
+
+            .trust-badges {
+                gap: 16px;
             }
         }
     </style>
@@ -1538,7 +1735,22 @@
          ========================================== -->
     <section id="cta">
         <div class="container">
-            <!-- Call-to-action content will go here -->
+            <div class="cta-content">
+                <h2 class="cta-headline">Stop Breaking Production. Start Shipping with Confidence.</h2>
+                <p class="cta-description" style="margin-bottom: 48px;">Join 247 data engineers who catch $500 mistakes in 10 seconds.</p>
+                <a href="#waitlist" class="btn-primary btn-large">Join the Waitlist — It's Free</a>
+
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">⚡</span>
+                        <span class="trust-badge-text">Setup in 2 minutes</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">💳</span>
+                        <span class="trust-badge-text">No credit card required</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1547,7 +1759,59 @@
          ========================================== -->
     <section id="waitlist">
         <div class="container">
-            <!-- Waitlist form will go here -->
+            <div class="waitlist-content">
+                <h2 class="section-title">Join the Waitlist</h2>
+                <p class="section-subtitle">Be among the first to experience AI-powered dbt code review. No credit card required.</p>
+
+                <form id="waitlistForm" class="waitlist-form">
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="Full Name"
+                        required
+                        class="form-input"
+                    >
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Work Email"
+                        required
+                        class="form-input"
+                    >
+
+                    <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        placeholder="Company Name"
+                        required
+                        class="form-input"
+                    >
+
+                    <select
+                        id="teamSize"
+                        name="teamSize"
+                        required
+                        class="form-input form-select"
+                    >
+                        <option value="" disabled selected>Team Size</option>
+                        <option value="1-5">1-5 engineers</option>
+                        <option value="6-20">6-20 engineers</option>
+                        <option value="21-50">21-50 engineers</option>
+                        <option value="51+">51+ engineers</option>
+                    </select>
+
+                    <button type="submit" class="btn-primary btn-large">Join Waitlist</button>
+                </form>
+
+                <div id="successMessage" class="success-message">
+                    <h3>🎉 You're on the list!</h3>
+                    <p>We'll email you when StackSherpa is ready for early access.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1630,6 +1894,83 @@
                     question.querySelector('.faq-icon').textContent = '−';
                 }
             });
+        });
+
+        // Waitlist form validation and submission
+        const waitlistForm = document.getElementById('waitlistForm');
+        const successMessage = document.getElementById('successMessage');
+
+        waitlistForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Get form values
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const company = document.getElementById('company').value.trim();
+            const teamSize = document.getElementById('teamSize').value;
+
+            // Email validation regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Validation
+            if (!fullName) {
+                alert('Please enter your full name');
+                return;
+            }
+
+            if (!email || !emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            if (!company) {
+                alert('Please enter your company name');
+                return;
+            }
+
+            if (!teamSize) {
+                alert('Please select your team size');
+                return;
+            }
+
+            // Disable submit button to prevent double submission
+            const submitButton = waitlistForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Joining...';
+
+            try {
+                // Google Apps Script endpoint (we'll add integration later)
+                const GOOGLE_SCRIPT_URL = 'https://script.google.com/a/macros/stacksherpa.ai/s/AKfycbw...';
+
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: fullName,
+                        email: email,
+                        company: company,
+                        teamSize: teamSize,
+                        timestamp: new Date().toISOString()
+                    })
+                });
+
+                // Show success message
+                waitlistForm.style.display = 'none';
+                successMessage.style.display = 'block';
+
+                // Reset form
+                waitlistForm.reset();
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('Something went wrong. Please try again.');
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
         });
     </script>
 </body>
