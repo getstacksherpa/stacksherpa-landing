@@ -1106,6 +1106,159 @@
             }
         }
 
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger delays for card animations */
+        .animate-on-scroll:nth-child(1) {
+            transition-delay: 0s;
+        }
+
+        .animate-on-scroll:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+
+        .animate-on-scroll:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+
+        .animate-on-scroll:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+
+        /* Scroll offset for sticky header */
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        /* Mobile navigation menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 100px 32px 32px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            font-size: 36px;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            text-align: center;
+        }
+
+        .mobile-nav-links a {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .mobile-nav-links a:hover {
+            color: var(--gradient-blue);
+        }
+
+        /* Accessibility - Reduce motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Performance optimizations */
+        .problem-card,
+        .feature-item,
+        .step,
+        .pricing-card,
+        .testimonial-card,
+        .faq-item {
+            contain: layout style paint;
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover,
+        .pricing-card:hover {
+            will-change: transform;
+        }
+
+        /* Focus states for accessibility */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible {
+            outline: 2px solid var(--gradient-blue);
+            outline-offset: 2px;
+        }
+
+        /* Skip to main content link */
+        .skip-to-main {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--gradient-blue);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-to-main:focus {
+            top: 0;
+        }
+
         /* ==========================================
            RESPONSIVE DESIGN
            ========================================== */
@@ -1209,6 +1362,22 @@
                 display: flex;
             }
 
+            /* Touch-friendly button sizes */
+            .btn-primary,
+            .btn-secondary {
+                min-height: 48px;
+                font-size: 16px;
+            }
+
+            .faq-question {
+                min-height: 48px;
+            }
+
+            /* Ensure readable font sizes on mobile */
+            body {
+                font-size: 16px;
+            }
+
             .hero-cta {
                 flex-direction: column;
                 width: 100%;
@@ -1266,12 +1435,15 @@
     </style>
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#hero" class="skip-to-main">Skip to main content</a>
+
     <!-- ==========================================
          NAVIGATION HEADER
          ========================================== -->
     <header>
-        <nav class="container">
-            <a href="#hero" class="logo">StackSherpa</a>
+        <nav class="container" role="navigation" aria-label="Main navigation">
+            <a href="#hero" class="logo" aria-label="StackSherpa home">StackSherpa</a>
 
             <ul class="nav-links" id="navLinks">
                 <li><a href="#features">Features</a></li>
@@ -1280,17 +1452,18 @@
                 <li><a href="#waitlist">Waitlist</a></li>
             </ul>
 
-            <div class="menu-toggle" id="menuToggle">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle mobile menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </nav>
     </header>
 
     <!-- ==========================================
          HERO SECTION
          ========================================== -->
+    <main role="main">
     <section id="hero">
         <div class="container">
             <!-- Floating Badge -->
@@ -1343,11 +1516,11 @@
          ========================================== -->
     <section id="problem">
         <div class="container">
-            <h2 class="section-headline">Data Engineers Deserve Better Code Review</h2>
+            <h2 class="section-headline animate-on-scroll">Data Engineers Deserve Better Code Review</h2>
 
             <div class="problem-cards">
                 <!-- Card 1 -->
-                <div class="problem-card">
+                <div class="problem-card animate-on-scroll">
                     <span class="problem-icon">⚠️</span>
                     <h3 class="problem-card-headline">Schema Changes Break Silently</h3>
                     <p class="problem-card-description">
@@ -1356,7 +1529,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="problem-card">
+                <div class="problem-card animate-on-scroll">
                     <span class="problem-icon">😓</span>
                     <h3 class="problem-card-headline">Manual Review Misses Things</h3>
                     <p class="problem-card-description">
@@ -1365,7 +1538,7 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="problem-card">
+                <div class="problem-card animate-on-scroll">
                     <span class="problem-icon">🤷</span>
                     <h3 class="problem-card-headline">Generic Tools Don't Understand dbt</h3>
                     <p class="problem-card-description">
@@ -1381,7 +1554,7 @@
          ========================================== -->
     <section id="solution">
         <div class="container">
-            <h2 class="section-headline">Built for Data Engineering Workflows</h2>
+            <h2 class="section-headline animate-on-scroll">Built for Data Engineering Workflows</h2>
 
             <div class="solution-container">
                 <!-- Left: Screenshot -->
@@ -1466,11 +1639,11 @@
          ========================================== -->
     <section id="how-it-works">
         <div class="container">
-            <h2 class="section-headline">Ship Faster, Break Less</h2>
+            <h2 class="section-headline animate-on-scroll">Ship Faster, Break Less</h2>
 
             <div class="steps-container">
                 <!-- Step 1 -->
-                <div class="step">
+                <div class="step animate-on-scroll">
                     <div class="step-number">01</div>
                     <h3 class="step-headline">Install GitHub App</h3>
                     <p class="step-description">
@@ -1479,7 +1652,7 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div class="step">
+                <div class="step animate-on-scroll">
                     <div class="step-number">02</div>
                     <h3 class="step-headline">Open PR with dbt Changes</h3>
                     <p class="step-description">
@@ -1488,7 +1661,7 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div class="step">
+                <div class="step animate-on-scroll">
                     <div class="step-number">03</div>
                     <h3 class="step-headline">Get AI Review in 10 Seconds</h3>
                     <p class="step-description">
@@ -1497,7 +1670,7 @@
                 </div>
 
                 <!-- Step 4 -->
-                <div class="step">
+                <div class="step animate-on-scroll">
                     <div class="step-number">04</div>
                     <h3 class="step-headline">Fix Issues Before Production</h3>
                     <p class="step-description">
@@ -1522,7 +1695,7 @@
          ========================================== -->
     <section id="pricing">
         <div class="container">
-            <h2 class="section-headline">Simple, Transparent Pricing</h2>
+            <h2 class="section-headline animate-on-scroll">Simple, Transparent Pricing</h2>
             <p class="section-subheadline">No contracts. Cancel anytime. 14-day free trial.</p>
 
             <!-- Founder Pricing Banner -->
@@ -1532,7 +1705,7 @@
 
             <div class="pricing-cards">
                 <!-- Free Card -->
-                <div class="pricing-card">
+                <div class="pricing-card animate-on-scroll">
                     <h3 class="pricing-tier">Free</h3>
                     <div class="pricing-price">£0/month</div>
                     <p class="pricing-description">For individuals trying StackSherpa</p>
@@ -1546,7 +1719,7 @@
                 </div>
 
                 <!-- Team Card (Highlighted) -->
-                <div class="pricing-card highlighted">
+                <div class="pricing-card highlighted animate-on-scroll">
                     <div class="popular-badge">Most Popular</div>
                     <h3 class="pricing-tier">Team</h3>
                     <div class="pricing-price">
@@ -1566,7 +1739,7 @@
                 </div>
 
                 <!-- Professional Card -->
-                <div class="pricing-card">
+                <div class="pricing-card animate-on-scroll">
                     <h3 class="pricing-tier">Professional</h3>
                     <div class="pricing-price">£49/user/month</div>
                     <p class="pricing-description">For larger teams & enterprises</p>
@@ -1589,13 +1762,13 @@
          ========================================== -->
     <section id="social-proof">
         <div class="container">
-            <h2 class="section-headline">Trusted by Data Teams</h2>
+            <h2 class="section-headline animate-on-scroll">Trusted by Data Teams</h2>
             <p class="section-subheadline">Join data engineers who ship faster and break less</p>
 
             <!-- Testimonials -->
             <div class="testimonials-container">
                 <!-- Testimonial 1 -->
-                <div class="testimonial-card">
+                <div class="testimonial-card animate-on-scroll">
                     <p class="testimonial-quote">
                         StackSherpa caught a schema change that would've broken our executive dashboard. It saved us from a really awkward conversation with the CFO. Now I trust my juniors to ship faster.
                     </p>
@@ -1609,7 +1782,7 @@
                 </div>
 
                 <!-- Testimonial 2 -->
-                <div class="testimonial-card">
+                <div class="testimonial-card animate-on-scroll">
                     <p class="testimonial-quote">
                         Like having a senior data engineer review every PR, even when I'm the only one on my team. The AI explanations actually teach me - I'm writing better dbt models because of this tool.
                     </p>
@@ -1623,7 +1796,7 @@
                 </div>
 
                 <!-- Testimonial 3 -->
-                <div class="testimonial-card">
+                <div class="testimonial-card animate-on-scroll">
                     <p class="testimonial-quote">
                         Saved us from a $500 CROSS JOIN mistake before it hit production. The performance warnings alone have paid for the subscription 10x over. Best investment we've made.
                     </p>
@@ -1657,7 +1830,7 @@
     <section id="faq">
         <div class="container">
             <div class="faq-container">
-                <h2 class="section-headline">Frequently Asked Questions</h2>
+                <h2 class="section-headline animate-on-scroll">Frequently Asked Questions</h2>
 
                 <div class="faq-list">
                     <!-- FAQ 1 -->
@@ -1760,7 +1933,7 @@
     <section id="waitlist">
         <div class="container">
             <div class="waitlist-content">
-                <h2 class="section-title">Join the Waitlist</h2>
+                <h2 class="section-title animate-on-scroll">Join the Waitlist</h2>
                 <p class="section-subtitle">Be among the first to experience AI-powered dbt code review. No credit card required.</p>
 
                 <form id="waitlistForm" class="waitlist-form">
@@ -1814,6 +1987,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- ==========================================
          JAVASCRIPT
@@ -1824,7 +1998,8 @@
         const navLinks = document.getElementById('navLinks');
 
         menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            const isActive = navLinks.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isActive);
         });
 
         // Close mobile menu when clicking on a link
@@ -1832,6 +2007,7 @@
         navItems.forEach(item => {
             item.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
             });
         });
 
@@ -1972,6 +2148,49 @@
                 submitButton.textContent = originalButtonText;
             }
         });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Body scroll lock for mobile menu
+        const body = document.body;
+        const mobileMenuToggle = document.querySelector('.menu-toggle');
+        const navLinksMenu = document.querySelector('.nav-links');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                const isActive = navLinksMenu.classList.contains('active');
+                if (isActive) {
+                    body.style.overflow = '';
+                } else {
+                    body.style.overflow = 'hidden';
+                }
+            });
+
+            // Close menu when clicking a link
+            const mobileNavItems = navLinksMenu.querySelectorAll('a');
+            mobileNavItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    body.style.overflow = '';
+                });
+            });
+        }
     </script>
 </body>
 </html>
