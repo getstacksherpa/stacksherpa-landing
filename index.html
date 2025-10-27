@@ -688,6 +688,126 @@
         }
 
         /* ==========================================
+           SOCIAL PROOF SECTION
+           ========================================== */
+        #social-proof {
+            padding: var(--space-2xl) 0;
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: 80px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-quote {
+            font-size: var(--text-sm);
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+            font-style: italic;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 24px;
+            color: var(--gradient-blue);
+            margin-right: 4px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-top: auto;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gradient-blue), var(--gradient-teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 18px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-size: var(--text-sm);
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+
+        .author-role {
+            font-size: var(--text-xs);
+            color: var(--text-gray);
+        }
+
+        .trusted-by {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .trusted-by-headline {
+            font-size: var(--text-xs);
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 32px;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* ==========================================
            ANIMATIONS
            ========================================== */
         @keyframes fadeInUp {
@@ -748,6 +868,10 @@
             .pricing-card.highlighted:hover {
                 transform: translateY(-4px);
             }
+
+            .testimonials-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -786,6 +910,14 @@
                 width: 60px;
                 height: 60px;
                 font-size: 24px;
+            }
+
+            .testimonials-container {
+                grid-template-columns: 1fr;
+            }
+
+            .logos-container {
+                gap: 30px;
             }
 
             .nav-links {
@@ -1177,7 +1309,65 @@
          ========================================== -->
     <section id="social-proof">
         <div class="container">
-            <!-- Testimonials/social proof will go here -->
+            <h2 class="section-headline">Trusted by Data Teams</h2>
+            <p class="section-subheadline">Join data engineers who ship faster and break less</p>
+
+            <!-- Testimonials -->
+            <div class="testimonials-container">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        StackSherpa caught a schema change that would've broken our executive dashboard. It saved us from a really awkward conversation with the CFO. Now I trust my juniors to ship faster.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SC</div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah Chen</div>
+                            <div class="author-role">Staff Data Engineer · TechCorp</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        Like having a senior data engineer review every PR, even when I'm the only one on my team. The AI explanations actually teach me - I'm writing better dbt models because of this tool.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <div class="author-name">Michael Rodriguez</div>
+                            <div class="author-role">Analytics Engineering Lead · GrowthCo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        Saved us from a $500 CROSS JOIN mistake before it hit production. The performance warnings alone have paid for the subscription 10x over. Best investment we've made.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JW</div>
+                        <div class="author-info">
+                            <div class="author-name">Jamie Wu</div>
+                            <div class="author-role">Data Platform Lead · DataFirst</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trusted By Logos -->
+            <div class="trusted-by">
+                <h3 class="trusted-by-headline">Used by data teams at</h3>
+                <div class="logos-container">
+                    <div class="logo-placeholder">Company 1</div>
+                    <div class="logo-placeholder">Company 2</div>
+                    <div class="logo-placeholder">Company 3</div>
+                    <div class="logo-placeholder">Company 4</div>
+                    <div class="logo-placeholder">Company 5</div>
+                </div>
+            </div>
         </div>
     </section>
 
