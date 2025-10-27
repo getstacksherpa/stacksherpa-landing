@@ -3,256 +3,443 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StackSherpa - Coming Soon</title>
-    
-    <!-- Favicon (add after you generate it) -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    
-    <!-- Fonts -->
+    <meta name="description" content="StackSherpa - AI-powered code review for dbt engineers. Catch schema drift, missing tests, and expensive SQL patterns before they break production.">
+    <title>StackSherpa - AI Code Review for dbt Engineers</title>
+
+    <!-- Favicon placeholder -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
+        /* ==========================================
+           CSS RESET
+           ========================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            background: linear-gradient(135deg, #1a3a4d 0%, #2C5F7C 100%);
-            overflow: hidden;
+        /* ==========================================
+           CSS VARIABLES
+           ========================================== */
+        :root {
+            /* Colors */
+            --bg-primary: #FFFFFF;
+            --text-primary: #1F2937;
+            --text-gray: #6B7280;
+            --gradient-blue: #3B82F6;
+            --gradient-teal: #06B6D4;
+            --accent-orange: #F59E0B;
+
+            /* Spacing */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 40px;
+            --space-xl: 64px;
+            --space-2xl: 120px;
+
+            /* Font Sizes */
+            --text-xs: 14px;
+            --text-sm: 16px;
+            --text-base: 18px;
+            --text-lg: 24px;
+            --text-xl: 36px;
+            --text-2xl: 48px;
+            --text-3xl: 60px;
         }
 
-        html, body {
-            overscroll-behavior: none;
-            /* Prevents the bounce/rubber band effect */
+        /* ==========================================
+           BASE STYLES
+           ========================================== */
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #1a3a4d 0%, #2C5F7C 100%);
-            color: #ffffff;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            margin: 0;
-            overflow: hidden;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
+        /* Container */
         .container {
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
         }
-        
-        .logo {
-            width: 300px;
-            height: auto;
-            margin-bottom: 30px;
+
+        /* ==========================================
+           NAVIGATION
+           ========================================== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
         }
-        
-        h1 {
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .tagline {
-            font-size: 24px;
-            font-weight: 600;
-            color: #FF6B35;
-            margin-bottom: 30px;
-        }
-        
-        .description {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-        
-        .email-form {
+
+        nav {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: var(--text-lg);
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Mobile menu toggle (hidden by default) */
+        .menu-toggle {
+            display: none;
             flex-direction: column;
-            gap: 12px;
-            max-width: 500px;
-            margin: 0 auto 30px;
+            gap: 4px;
+            cursor: pointer;
         }
-        
-        .email-input {
-            flex: 1;
-            padding: 16px 20px;
-            font-size: 16px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 8px;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            font-family: 'Inter', sans-serif;
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
         }
-        
-        .email-input::placeholder {
-            color: rgba(255,255,255,0.6);
+
+        /* ==========================================
+           SECTION CONTAINERS
+           ========================================== */
+        section {
+            padding: var(--space-2xl) 0;
         }
-        
-        .email-input:focus {
-            outline: none;
-            border-color: #FF6B35;
-            background: rgba(255,255,255,0.15);
+
+        /* Alternate background for visual separation */
+        section:nth-child(even) {
+            background: rgba(0, 0, 0, 0.02);
         }
-        
-        .submit-btn {
-            padding: 16px 32px;
-            font-size: 16px;
+
+        /* ==========================================
+           UTILITY CLASSES
+           ========================================== */
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--gradient-blue) 0%, var(--gradient-teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        /* Glass Morphism Card */
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Primary Button */
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gradient-blue) 0%, var(--gradient-teal) 100%);
+            color: var(--text-primary);
+            font-size: var(--text-base);
             font-weight: 600;
-            background: #FF6B35;
-            color: white;
+            padding: var(--space-sm) var(--space-lg);
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.2s;
-        }
-        
-        .submit-btn:hover {
-            background: #cc5528;
-            transform: translateY(-2px);
-        }
-        
-        .launch-date {
-            font-size: 14px;
-            opacity: 0.7;
-            margin-bottom: 30px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 40px;
-        }
-        
-        .social-link {
-            color: rgba(255,255,255,0.7);
             text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
         }
-        
-        .social-link:hover {
-            color: #FF6B35;
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
         }
-        
-        /* Mobile responsive */
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 36px;
+
+        /* Secondary Button */
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--text-primary);
+            font-size: var(--text-base);
+            font-weight: 600;
+            padding: var(--space-sm) var(--space-lg);
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gradient-blue);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        /* Text Utilities */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-gray {
+            color: var(--text-gray);
+        }
+
+        /* ==========================================
+           RESPONSIVE DESIGN
+           ========================================== */
+        @media (max-width: 768px) {
+            :root {
+                --space-2xl: 60px;
+                --text-3xl: 40px;
+                --text-2xl: 32px;
+                --text-xl: 28px;
             }
-            
-            .tagline {
-                font-size: 20px;
+
+            section {
+                padding: var(--space-xl) 0;
             }
-            
-            .description {
-                font-size: 16px;
-            }
-            
-            .submit-btn {
+
+            .nav-links {
+                position: fixed;
+                top: 73px;
+                left: -100%;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
                 width: 100%;
+                padding: var(--space-lg);
+                gap: var(--space-md);
+                transition: left 0.3s ease;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --text-3xl: 32px;
+                --text-2xl: 28px;
+                --text-xl: 24px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Replace with your actual logo path -->
-        <img src="blue_logo.png" alt="StackSherpa" class="logo">
-        
-        <h1>Coming Soon</h1>
-        
-        <p class="tagline">Catch $500 mistakes in 10 seconds</p>
-        
-        <p class="description">
-            AI-powered code review for dbt engineers. 
-            We catch schema drift, missing tests, and expensive SQL patterns 
-            before they break production.
-        </p>
-        
-        <form class="email-form" id="waitlist-form">
-            <input
-                type="text"
-                class="email-input"
-                placeholder="Your Name"
-                required
-                id="name-input"
-            >
-            <input
-                type="email"
-                class="email-input"
-                placeholder="your.email@company.com"
-                required
-                id="email-input"
-            >
-            <button type="submit" class="submit-btn">Join Waitlist</button>
-        </form>
-        
-        <p class="launch-date">Launching January 2026</p>
-        
-        <!-- <div class="social-links">
-            <a href="https://github.com/yourusername" class="social-link" target="_blank">GitHub</a>
-            <a href="https://twitter.com/yourusername" class="social-link" target="_blank">Twitter</a>
-            <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank">LinkedIn</a>
-        </div> -->
-    </div>
-    
+    <!-- ==========================================
+         NAVIGATION HEADER
+         ========================================== -->
+    <header>
+        <nav class="container">
+            <a href="#hero" class="logo">StackSherpa</a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#waitlist">Waitlist</a></li>
+            </ul>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ==========================================
+         HERO SECTION
+         ========================================== -->
+    <section id="hero">
+        <div class="container">
+            <!-- Hero content will go here -->
+        </div>
+    </section>
+
+    <!-- ==========================================
+         PROBLEM SECTION
+         ========================================== -->
+    <section id="problem">
+        <div class="container">
+            <!-- Problem statement content will go here -->
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SOLUTION SECTION
+         ========================================== -->
+    <section id="solution">
+        <div class="container">
+            <!-- Solution content will go here -->
+        </div>
+    </section>
+
+    <!-- ==========================================
+         HOW IT WORKS SECTION
+         ========================================== -->
+    <section id="how-it-works">
+        <div class="container">
+            <!-- How it works content will go here -->
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FEATURES SECTION
+         ========================================== -->
+    <section id="features">
+        <div class="container">
+            <!-- Features content will go here -->
+        </div>
+    </section>
+
+    <!-- ==========================================
+         PRICING SECTION
+         ========================================== -->
+    <section id="pricing">
+        <div class="container">
+            <!-- Pricing content will go here -->
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SOCIAL PROOF SECTION
+         ========================================== -->
+    <section id="social-proof">
+        <div class="container">
+            <!-- Testimonials/social proof will go here -->
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FAQ SECTION
+         ========================================== -->
+    <section id="faq">
+        <div class="container">
+            <!-- FAQ content will go here -->
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CTA SECTION
+         ========================================== -->
+    <section id="cta">
+        <div class="container">
+            <!-- Call-to-action content will go here -->
+        </div>
+    </section>
+
+    <!-- ==========================================
+         WAITLIST SECTION
+         ========================================== -->
+    <section id="waitlist">
+        <div class="container">
+            <!-- Waitlist form will go here -->
+        </div>
+    </section>
+
+    <!-- ==========================================
+         JAVASCRIPT
+         ========================================== -->
     <script>
-        // Google Apps Script URL
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRxFpzYAVd2w5sB4SFJx1lpzbL0zN-UWlWH5n4QxelgFReSLTdS3rUfrEbrt6mYUk/exec';
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
 
-        // Form handling with Google Apps Script
-        document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
-            const name = document.getElementById('name-input').value;
-            const email = document.getElementById('email-input').value;
+        // Close mobile menu when clicking on a link
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
 
-            console.log('Form submitted!');
-            console.log('Name:', name);
-            console.log('Email:', email);
-            console.log('Script URL:', GOOGLE_SCRIPT_URL);
+        // Smooth scroll enhancement (optional, since CSS handles it)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-            const payload = {
-                name: name,
-                email: email,
-                timestamp: new Date().toISOString()
-            };
+        // Add scroll effect to header (optional enhancement)
+        let lastScroll = 0;
+        const header = document.querySelector('header');
 
-            console.log('Sending payload:', payload);
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
 
-            try {
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(payload)
-                });
-
-                console.log('Request sent successfully (no-cors mode)');
-                alert('Thanks for joining!');
-
-                // Clear form
-                document.getElementById('name-input').value = '';
-                document.getElementById('email-input').value = '';
-
-            } catch (error) {
-                console.error('Error submitting form:', error);
-                alert('Error: ' + error.message);
+            // Add shadow on scroll
+            if (currentScroll > 10) {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.boxShadow = 'none';
             }
+
+            lastScroll = currentScroll;
         });
     </script>
 </body>
