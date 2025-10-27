@@ -343,6 +343,64 @@
         }
 
         /* ==========================================
+           PROBLEM SECTION
+           ========================================== */
+        #problem {
+            padding: var(--space-2xl) 0;
+        }
+
+        .section-headline {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 80px;
+            color: var(--text-primary);
+        }
+
+        .problem-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .problem-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .problem-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .problem-card-headline {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+
+        .problem-card-description {
+            font-size: var(--text-sm);
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* ==========================================
            ANIMATIONS
            ========================================== */
         @keyframes fadeInUp {
@@ -377,6 +435,12 @@
         /* ==========================================
            RESPONSIVE DESIGN
            ========================================== */
+        @media (max-width: 1024px) {
+            .problem-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             :root {
                 --space-2xl: 60px;
@@ -387,6 +451,16 @@
 
             section {
                 padding: var(--space-xl) 0;
+            }
+
+            .section-headline {
+                font-size: 32px;
+                margin-bottom: 40px;
+            }
+
+            .problem-cards {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
             }
 
             .nav-links {
@@ -532,7 +606,36 @@
          ========================================== -->
     <section id="problem">
         <div class="container">
-            <!-- Problem statement content will go here -->
+            <h2 class="section-headline">Data Engineers Deserve Better Code Review</h2>
+
+            <div class="problem-cards">
+                <!-- Card 1 -->
+                <div class="problem-card">
+                    <span class="problem-icon">⚠️</span>
+                    <h3 class="problem-card-headline">Schema Changes Break Silently</h3>
+                    <p class="problem-card-description">
+                        Column renames break downstream models. Dashboards show wrong data for weeks. Nobody notices until the CFO asks questions.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="problem-card">
+                    <span class="problem-icon">😓</span>
+                    <h3 class="problem-card-headline">Manual Review Misses Things</h3>
+                    <p class="problem-card-description">
+                        10+ hours/week reviewing PRs. Junior engineers ship bugs. Senior engineers are overwhelmed and can't check everything.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="problem-card">
+                    <span class="problem-icon">🤷</span>
+                    <h3 class="problem-card-headline">Generic Tools Don't Understand dbt</h3>
+                    <p class="problem-card-description">
+                        CodeRabbit treats SQL like Python. Misses {{ ref() }} dependencies. Doesn't understand incremental models or schema.yml.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
