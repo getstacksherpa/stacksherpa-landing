@@ -141,7 +141,7 @@
            SECTION CONTAINERS
            ========================================== */
         section {
-            padding: var(--space-2xl) 0;
+            padding: var(--space-xl) 0;
         }
 
         /* Alternate background for visual separation */
@@ -551,6 +551,143 @@
         }
 
         /* ==========================================
+           PRICING SECTION
+           ========================================== */
+        #pricing {
+            padding: var(--space-2xl) 0;
+        }
+
+        .section-subheadline {
+            font-size: var(--text-base);
+            color: var(--text-gray);
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .founder-pricing-banner {
+            background: rgba(245, 158, 11, 0.1);
+            border: 2px solid var(--accent-orange);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            font-size: var(--text-base);
+            font-weight: 600;
+            margin-bottom: 60px;
+            color: var(--text-primary);
+        }
+
+        .founder-pricing-banner .spots-remaining {
+            background: linear-gradient(135deg, var(--gradient-blue), var(--gradient-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            align-items: flex-start;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Highlighted Team card */
+        .pricing-card.highlighted {
+            border: 2px solid var(--gradient-blue);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.highlighted:hover {
+            transform: scale(1.05) translateY(-4px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--gradient-blue), var(--gradient-teal));
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: var(--text-xs);
+            font-weight: 600;
+            color: white;
+        }
+
+        .pricing-tier {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+
+        .pricing-price {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            margin: 20px 0;
+            color: var(--text-primary);
+        }
+
+        .pricing-price-old {
+            text-decoration: line-through;
+            color: var(--text-gray);
+            font-size: var(--text-lg);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .pricing-description {
+            font-size: var(--text-sm);
+            color: var(--text-gray);
+            margin-bottom: var(--space-md);
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin: var(--space-md) 0;
+            font-size: var(--text-sm);
+        }
+
+        .pricing-features li {
+            line-height: 2;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gradient-blue);
+            font-weight: 700;
+        }
+
+        .pricing-card .btn-primary,
+        .pricing-card .btn-secondary {
+            width: 100%;
+            margin-top: var(--space-md);
+        }
+
+        /* ==========================================
            ANIMATIONS
            ========================================== */
         @keyframes fadeInUp {
@@ -597,6 +734,19 @@
 
             .solution-screenshot-placeholder {
                 height: 400px;
+            }
+
+            .pricing-cards {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+
+            .pricing-card.highlighted {
+                transform: scale(1);
+            }
+
+            .pricing-card.highlighted:hover {
+                transform: translateY(-4px);
             }
         }
 
@@ -960,7 +1110,65 @@
          ========================================== -->
     <section id="pricing">
         <div class="container">
-            <!-- Pricing content will go here -->
+            <h2 class="section-headline">Simple, Transparent Pricing</h2>
+            <p class="section-subheadline">No contracts. Cancel anytime. 14-day free trial.</p>
+
+            <!-- Founder Pricing Banner -->
+            <div class="founder-pricing-banner">
+                🚀 Founder Pricing: First 100 customers lock in £19/month forever · <span class="spots-remaining">43 spots remaining</span>
+            </div>
+
+            <div class="pricing-cards">
+                <!-- Free Card -->
+                <div class="pricing-card">
+                    <h3 class="pricing-tier">Free</h3>
+                    <div class="pricing-price">£0/month</div>
+                    <p class="pricing-description">For individuals trying StackSherpa</p>
+                    <ul class="pricing-features">
+                        <li>5 PR reviews per month</li>
+                        <li>Basic schema change detection</li>
+                        <li>Public repositories only</li>
+                        <li>Community support</li>
+                    </ul>
+                    <a href="#waitlist" class="btn-secondary">Get Started</a>
+                </div>
+
+                <!-- Team Card (Highlighted) -->
+                <div class="pricing-card highlighted">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3 class="pricing-tier">Team</h3>
+                    <div class="pricing-price">
+                        <span class="pricing-price-old">£29</span>
+                        £19/user/month
+                    </div>
+                    <p class="pricing-description">For data engineering teams</p>
+                    <ul class="pricing-features">
+                        <li>Unlimited PR reviews</li>
+                        <li>Full schema analysis</li>
+                        <li>Private repositories</li>
+                        <li>SQL performance warnings</li>
+                        <li>Test coverage suggestions</li>
+                        <li>Email support (48h response)</li>
+                    </ul>
+                    <a href="#waitlist" class="btn-primary">Join Waitlist</a>
+                </div>
+
+                <!-- Professional Card -->
+                <div class="pricing-card">
+                    <h3 class="pricing-tier">Professional</h3>
+                    <div class="pricing-price">£49/user/month</div>
+                    <p class="pricing-description">For larger teams & enterprises</p>
+                    <ul class="pricing-features">
+                        <li>Everything in Team, plus:</li>
+                        <li>Deep lineage analysis (5+ levels)</li>
+                        <li>Custom rule builder</li>
+                        <li>PR quality dashboard</li>
+                        <li>Priority support (24h)</li>
+                        <li>API access</li>
+                    </ul>
+                    <a href="#contact" class="btn-secondary">Contact Sales</a>
+                </div>
+            </div>
         </div>
     </section>
 
