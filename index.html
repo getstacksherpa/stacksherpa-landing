@@ -1113,6 +1113,153 @@
             }
         }
 
+        /* ==========================================
+           FOOTER SECTION
+           ========================================== */
+        footer {
+            background: rgba(0, 0, 0, 0.02);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 60px 0 40px;
+            margin-top: var(--space-2xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand {
+            max-width: 400px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--gradient-blue), var(--gradient-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-tagline {
+            font-size: 16px;
+            color: var(--text-gray);
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .footer-subtext {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0;
+        }
+
+        .footer-links a {
+            display: block;
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gradient-blue);
+            transform: translateX(4px);
+        }
+
+        .footer-email {
+            display: block;
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--text-gray);
+            text-decoration: none;
+        }
+
+        .footer-email:hover {
+            color: var(--gradient-blue);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            text-decoration: none;
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(0, 0, 0, 0.1);
+            border-color: var(--gradient-blue);
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 16px;
+            font-size: 14px;
+        }
+
+        .footer-legal a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--text-primary);
+        }
+
         /* Scroll animations */
         .animate-on-scroll {
             opacity: 0;
@@ -1404,6 +1551,30 @@
                 right: var(--space-sm);
                 font-size: 12px;
                 padding: 6px 12px;
+            }
+
+            /* Footer responsive */
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .footer-brand {
+                max-width: 100%;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-legal {
+                justify-content: center;
             }
         }
 
@@ -1987,6 +2158,57 @@
         </div>
     </section>
     </main>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Left Column: Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">StackSherpa</div>
+                    <p class="footer-tagline">Your AI guide through the data stack</p>
+                    <p class="footer-subtext">Prevent production incidents before they happen</p>
+                </div>
+
+                <!-- Middle Column: Product Links -->
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#solution">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#waitlist">Waitlist</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Column: Connect -->
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="GitHub" title="GitHub">💻</a>
+                        <a href="#" class="social-link" aria-label="Twitter" title="Twitter">🐦</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn" title="LinkedIn">💼</a>
+                        <a href="#" class="social-link" aria-label="Discord" title="Discord">💬</a>
+                    </div>
+                    <a href="mailto:support@stacksherpa.ai" class="footer-email">support@stacksherpa.ai</a>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2025 StackSherpa. All rights reserved.
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <span>·</span>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- ==========================================
          JAVASCRIPT
