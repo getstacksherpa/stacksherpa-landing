@@ -96,6 +96,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 40px;
         }
 
         .logo {
@@ -106,6 +107,7 @@
             font-weight: 700;
             color: var(--text-primary);
             text-decoration: none;
+            flex-shrink: 0;
         }
 
         .logo-image {
@@ -117,6 +119,7 @@
             display: flex;
             gap: var(--space-lg);
             list-style: none;
+            margin: 0 auto; /* Center the navigation links */
         }
 
         .nav-links a {
@@ -129,6 +132,51 @@
 
         .nav-links a:hover {
             color: var(--text-primary);
+        }
+
+        /* Navigation buttons */
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .nav-btn-secondary {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            background: transparent;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-btn-secondary:hover {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-btn-primary {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, var(--gradient-blue), var(--gradient-teal));
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+
+        .nav-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
         }
 
         /* Mobile menu toggle (hidden by default) */
@@ -355,7 +403,7 @@
            PROBLEM SECTION
            ========================================== */
         #problem {
-            padding: var(--space-2xl) 0;
+            padding: var(--space-xl) 0;
         }
 
         .section-headline {
@@ -1131,7 +1179,7 @@
             background: rgba(0, 0, 0, 0.02);
             border-top: 1px solid rgba(0, 0, 0, 0.1);
             padding: 60px 0 40px;
-            margin-top: var(--space-2xl);
+            margin-top: var(--space-xl);
         }
 
         .footer-content {
@@ -1280,6 +1328,27 @@
 
         .footer-legal a:hover {
             color: var(--text-primary);
+        }
+
+        .footer-built-with {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .footer-built-with a {
+            color: var(--gradient-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-built-with a:hover {
+            color: var(--gradient-teal);
+            text-decoration: underline;
         }
 
         /* Scroll animations */
@@ -1538,6 +1607,11 @@
                 display: flex;
             }
 
+            /* Hide nav buttons on mobile */
+            .nav-buttons {
+                display: none;
+            }
+
             /* Touch-friendly button sizes */
             .btn-primary,
             .btn-secondary {
@@ -1654,6 +1728,11 @@
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#waitlist">Waitlist</a></li>
             </ul>
+
+            <div class="nav-buttons">
+                <a href="#" class="nav-btn-secondary">Coming Soon</a>
+                <a href="#waitlist" class="nav-btn-primary">Start for Free →</a>
+            </div>
 
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle mobile menu" aria-expanded="false">
                 <span></span>
@@ -1929,6 +2008,7 @@
                         <li>SQL performance warnings</li>
                         <li>Test coverage suggestions</li>
                         <li>Email support (48h response)</li>
+                        <li>14-day free trial</li>
                     </ul>
                     <a href="#waitlist" class="btn-primary">Join Waitlist</a>
                 </div>
@@ -1946,7 +2026,7 @@
                         <li>Priority support (24h)</li>
                         <li>API access</li>
                     </ul>
-                    <a href="#contact" class="btn-secondary">Contact Sales</a>
+                    <a href="#contact" class="btn-secondary">Coming soon</a>
                 </div>
             </div>
         </div>
@@ -2234,6 +2314,11 @@
                     <span>·</span>
                     <a href="#">Terms of Service</a>
                 </div>
+            </div>
+
+            <!-- Built with love message -->
+            <div class="footer-built-with">
+                Built with ❤️ by FAANG to prevent <a href="https://www.linkedin.com/posts/shubham-srivstv_it-was-342-am-a-junior-data-engineer-had-activity-7344759235240521730-dqFS" target="_blank" rel="noopener noreferrer">those 3am data incidents</a>
             </div>
         </div>
     </footer>
@@ -2532,15 +2617,42 @@
                         }
                     }
 
-                    // Update founder pricing banner spots
-                    const spotsRemainingSpan = document.querySelector('.spots-remaining');
-                    if (spotsRemainingSpan) {
-                        if (spotsRemaining > 0) {
+                    // Handle founder pricing banner and Team pricing
+                    const founderBanner = document.querySelector('.founder-pricing-banner');
+                    const teamPriceElement = document.querySelector('.pricing-card.highlighted .pricing-price');
+                    const teamOldPrice = document.querySelector('.pricing-card.highlighted .pricing-price-old');
+
+                    if (spotsRemaining > 0) {
+                        // Show founder pricing banner
+                        if (founderBanner) {
+                            founderBanner.style.display = 'block';
+                        }
+                        // Update spots remaining text
+                        const spotsRemainingSpan = document.querySelector('.spots-remaining');
+                        if (spotsRemainingSpan) {
                             spotsRemainingSpan.textContent = `${spotsRemaining} spots remaining`;
                             spotsRemainingSpan.style.display = 'inline';
-                        } else {
-                            // Hide the spots text when no spots left
-                            spotsRemainingSpan.style.display = 'none';
+                        }
+                    } else {
+                        // Hide founder pricing banner completely
+                        if (founderBanner) {
+                            founderBanner.style.display = 'none';
+                        }
+
+                        // Update Team pricing to £29 (no discount)
+                        if (teamPriceElement) {
+                            const currentText = teamPriceElement.textContent;
+                            // Check if user is in UK or not
+                            const isUK = Intl.DateTimeFormat().resolvedOptions().timeZone.includes('London');
+                            const newPrice = isUK ? '£29/user/month' : '$37/user/month';
+
+                            // Update the price text to regular price
+                            teamPriceElement.innerHTML = newPrice;
+                        }
+
+                        // Hide the strikethrough old price
+                        if (teamOldPrice) {
+                            teamOldPrice.style.display = 'none';
                         }
                     }
 
