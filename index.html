@@ -1671,7 +1671,7 @@
         <div class="container">
             <!-- Floating Badge -->
             <div class="floating-badge">
-                43 spots left
+                Loading...
             </div>
 
             <!-- Hero Content -->
@@ -1895,7 +1895,7 @@
 
             <!-- Founder Pricing Banner -->
             <div class="founder-pricing-banner">
-                🚀 Founder Pricing: First 100 customers lock in £19/month forever · <span class="spots-remaining">43 spots remaining</span>
+                🚀 Founder Pricing: First 100 customers lock in £19/month forever · <span class="spots-remaining">Loading...</span>
             </div>
 
             <div class="pricing-cards">
@@ -2105,7 +2105,7 @@
         <div class="container">
             <div class="cta-content">
                 <h2 class="cta-headline">Stop Breaking Production. Start Shipping with Confidence.</h2>
-                <p class="cta-description" style="margin-bottom: 48px;">Join 247 data engineers who catch $500 mistakes in 10 seconds.</p>
+                <p class="cta-description" style="margin-bottom: 48px;">Join the data engineers who catch $500 mistakes in 10 seconds</p>
                 <a href="#waitlist" class="btn-primary btn-large">Join the Waitlist — It's Free</a>
 
                 <div class="trust-badges">
@@ -2326,7 +2326,7 @@
         const successMessage = document.getElementById('successMessage');
 
         // Google Apps Script URL
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRxFpzYAVd2w5sB4SFJx1lpzbL0zN-UWlWH5n4QxelgFReSLTdS3rUfrEbrt6mYUk/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxjGturmR_Q25CeGjrX3bBr55S9SBIyNGp0L1zeKGb22k8B7EjxswRM6_x-JU5h8uI/exec'
 
         waitlistForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -2402,6 +2402,12 @@
 
                 // Reset form
                 waitlistForm.reset();
+
+                // Update remaining spots count after successful submission
+                // Wait a moment for Google Sheets to update, then refresh the count
+                setTimeout(() => {
+                    updateRemainingSpots();
+                }, 1000);
 
             } catch (error) {
                 console.error('Error submitting form:', error);
@@ -2499,6 +2505,57 @@
 
         // Run currency detection on page load
         detectAndSetCurrency();
+
+        // Fetch and update remaining spots dynamically
+        async function updateRemainingSpots() {
+            try {
+                // Fetch current spot count from Google Apps Script
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'GET',
+                    mode: 'cors' // Use cors for GET to read the response
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success' && data.remainingSpots !== undefined) {
+                    const spotsRemaining = data.remainingSpots;
+
+                    // Update floating badge
+                    const floatingBadge = document.querySelector('.floating-badge');
+                    if (floatingBadge) {
+                        if (spotsRemaining > 0) {
+                            floatingBadge.textContent = `${spotsRemaining} spots left`;
+                            floatingBadge.style.display = 'block';
+                        } else {
+                            // Hide the badge when no spots left
+                            floatingBadge.style.display = 'none';
+                        }
+                    }
+
+                    // Update founder pricing banner spots
+                    const spotsRemainingSpan = document.querySelector('.spots-remaining');
+                    if (spotsRemainingSpan) {
+                        if (spotsRemaining > 0) {
+                            spotsRemainingSpan.textContent = `${spotsRemaining} spots remaining`;
+                            spotsRemainingSpan.style.display = 'inline';
+                        } else {
+                            // Hide the spots text when no spots left
+                            spotsRemainingSpan.style.display = 'none';
+                        }
+                    }
+
+                    console.log(`Updated remaining spots: ${spotsRemaining}`);
+                } else {
+                    console.log('Could not fetch spot count, using default value');
+                }
+            } catch (error) {
+                console.log('Error fetching remaining spots:', error);
+                // Keep the hardcoded values if fetch fails
+            }
+        }
+
+        // Update spots on page load
+        updateRemainingSpots();
     </script>
 </body>
 </html>
