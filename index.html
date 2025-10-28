@@ -873,6 +873,228 @@
             border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
+        /* Carousel Styles */
+        .carousel-container {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: 60px 80px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .carousel-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+            line-height: 1;
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .carousel-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .carousel-description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .carousel-description code {
+            background: rgba(59, 130, 246, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 15px;
+            color: var(--gradient-blue);
+            font-weight: 600;
+        }
+
+        .carousel-impact {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #d97706;
+            margin-bottom: 16px;
+            padding: 16px 24px;
+            background: rgba(217, 119, 6, 0.08);
+            border-left: 4px solid #FF6B35;
+            border-radius: 8px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .carousel-impact strong {
+            font-weight: 700;
+            color: #b45309;
+        }
+
+        .carousel-source {
+            font-size: 14px;
+            color: #9ca3af;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .carousel-cta {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--gradient-blue), var(--gradient-teal));
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+        }
+
+        .carousel-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+        }
+
+        /* Navigation Arrows */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            color: var(--text-primary);
+        }
+
+        .carousel-arrow:hover {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-arrow-prev {
+            left: 20px;
+        }
+
+        .carousel-arrow-next {
+            right: 20px;
+        }
+
+        /* Dot Indicators */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .carousel-dot:hover {
+            background: rgba(0, 0, 0, 0.4);
+            transform: scale(1.2);
+        }
+
+        .carousel-dot.active {
+            background: linear-gradient(135deg, var(--gradient-blue), var(--gradient-teal));
+            width: 32px;
+            border-radius: 6px;
+        }
+
+        .incidents-disclaimer {
+            text-align: center;
+            font-size: 13px;
+            color: #9ca3af;
+            margin-top: 48px;
+            margin-bottom: 48px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .incidents-cta {
+            text-align: center;
+            margin-top: 60px;
+            padding: 48px 32px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .incidents-cta-headline {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .incidents-cta .btn-primary {
+            margin-bottom: 16px;
+        }
+
+        .incidents-cta-subtext {
+            font-size: 15px;
+            color: var(--text-gray);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
         /* ==========================================
            FAQ SECTION
            ========================================== */
@@ -1581,6 +1803,48 @@
                 grid-template-columns: 1fr;
             }
 
+            .carousel-slide {
+                padding: 40px 24px;
+            }
+
+            .carousel-icon {
+                font-size: 48px;
+            }
+
+            .carousel-title {
+                font-size: 22px;
+            }
+
+            .carousel-description {
+                font-size: 15px;
+            }
+
+            .carousel-impact {
+                font-size: 14px;
+                padding: 12px 16px;
+            }
+
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+            }
+
+            .carousel-arrow-prev {
+                left: 10px;
+            }
+
+            .carousel-arrow-next {
+                right: 10px;
+            }
+
+            .incidents-cta-headline {
+                font-size: 24px;
+            }
+
+            .incidents-cta {
+                padding: 32px 24px;
+            }
+
             .logos-container {
                 gap: 30px;
             }
@@ -2037,64 +2301,87 @@
          ========================================== -->
     <section id="social-proof">
         <div class="container">
-            <h2 class="section-headline animate-on-scroll">Trusted by Data Teams</h2>
-            <p class="section-subheadline">Join data engineers who ship faster and break less</p>
+            <h2 class="section-headline animate-on-scroll">Production Incidents StackSherpa Prevents</h2>
+            <p class="section-subheadline">Real incidents from data teams (2024-2025)</p>
 
-            <!-- Testimonials -->
-            <div class="testimonials-container">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card animate-on-scroll">
-                    <p class="testimonial-quote">
-                        StackSherpa caught a schema change that would've broken our executive dashboard. It saved us from a really awkward conversation with the CFO. Now I trust my juniors to ship faster.
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SC</div>
-                        <div class="author-info">
-                            <div class="author-name">Sarah Chen</div>
-                            <div class="author-role">Staff Data Engineer · TechCorp</div>
-                        </div>
+            <!-- Incident Carousel -->
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Slide 1: The $523 CROSS JOIN Mistake -->
+                        <article class="carousel-slide active">
+                            <div class="carousel-icon">🔥</div>
+                            <h3 class="carousel-title">The $523 CROSS JOIN Mistake</h3>
+                            <div class="carousel-description">
+                                <p>Missing <code>ON</code> clause in join query. Users table (2M rows) × Events table (500M rows) = 1 trillion intermediate rows. Query ran for over an hour on large Snowflake warehouse.</p>
+                            </div>
+                            <div class="carousel-impact">
+                                <strong>Impact:</strong> Quarterly budget blown on one query, CTO escalation
+                            </div>
+                            <p class="carousel-source">Source: r/dataengineering, March 2024</p>
+                            <a href="#solution" class="carousel-cta">How StackSherpa Prevents This →</a>
+                        </article>
+
+                        <!-- Slide 2: The Column Rename That Broke Finance -->
+                        <article class="carousel-slide">
+                            <div class="carousel-icon">⚠️</div>
+                            <h3 class="carousel-title">The Column Rename That Broke Finance</h3>
+                            <div class="carousel-description">
+                                <p>Column renamed from <code>user_id</code> to <code>customer_id</code>. PR approved with "LGTM". Three downstream models broke silently. Wrong revenue numbers shown to board for 2 weeks.</p>
+                            </div>
+                            <div class="carousel-impact">
+                                <strong>Impact:</strong> $50K in bad decisions, emergency weekend fix
+                            </div>
+                            <p class="carousel-source">Source: dbt Community Slack, May 2024</p>
+                            <a href="#solution" class="carousel-cta">How StackSherpa Prevents This →</a>
+                        </article>
+
+                        <!-- Slide 3: The Incremental Model That Duplicated Everything -->
+                        <article class="carousel-slide">
+                            <div class="carousel-icon">⚠️</div>
+                            <h3 class="carousel-title">The Incremental Model That Duplicated Everything</h3>
+                            <div class="carousel-description">
+                                <p>Incremental model used <code>&gt;=</code> instead of <code>&gt;</code>. Re-processed previous day on every run. Duplicates accumulated for 3 months. All Q2 KPIs incorrect.</p>
+                            </div>
+                            <div class="carousel-impact">
+                                <strong>Impact:</strong> Lost customer trust, full data reconciliation required
+                            </div>
+                            <p class="carousel-source">Source: dbt Discourse, August 2024</p>
+                            <a href="#solution" class="carousel-cta">How StackSherpa Prevents This →</a>
+                        </article>
                     </div>
+
+                    <!-- Navigation Arrows -->
+                    <button class="carousel-arrow carousel-arrow-prev" id="prevBtn" aria-label="Previous slide">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="carousel-arrow carousel-arrow-next" id="nextBtn" aria-label="Next slide">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
                 </div>
 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card animate-on-scroll">
-                    <p class="testimonial-quote">
-                        Like having a senior data engineer review every PR, even when I'm the only one on my team. The AI explanations actually teach me - I'm writing better dbt models because of this tool.
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MR</div>
-                        <div class="author-info">
-                            <div class="author-name">Michael Rodriguez</div>
-                            <div class="author-role">Analytics Engineering Lead · GrowthCo</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card animate-on-scroll">
-                    <p class="testimonial-quote">
-                        Saved us from a $500 CROSS JOIN mistake before it hit production. The performance warnings alone have paid for the subscription 10x over. Best investment we've made.
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">JW</div>
-                        <div class="author-info">
-                            <div class="author-name">Jamie Wu</div>
-                            <div class="author-role">Data Platform Lead · DataFirst</div>
-                        </div>
-                    </div>
+                <!-- Dot Indicators -->
+                <div class="carousel-dots" id="carouselDots">
+                    <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                    <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                    <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
                 </div>
             </div>
 
-            <!-- Trusted By Logos -->
-            <div class="trusted-by">
-                <h3 class="trusted-by-headline">Used by data teams at</h3>
-                <div class="logos-container">
-                    <div class="logo-placeholder">Company 1</div>
-                    <div class="logo-placeholder">Company 2</div>
-                    <div class="logo-placeholder">Company 3</div>
-                    <div class="logo-placeholder">Company 4</div>
-                    <div class="logo-placeholder">Company 5</div>
-                </div>
+            <!-- Footer Disclaimer -->
+            <p class="incidents-disclaimer">
+                Stories based on documented incidents from dbt Community forums, r/dataengineering, and data engineer interviews. Details anonymized.
+            </p>
+
+            <!-- CTA After Incidents -->
+            <div class="incidents-cta">
+                <h3 class="incidents-cta-headline">Don't Let This Happen to Your Team</h3>
+                <a href="#waitlist" class="btn-primary btn-large">Join Waitlist</a>
+                <p class="incidents-cta-subtext">StackSherpa catches these issues in 10 seconds, before they reach production</p>
             </div>
         </div>
     </section>
@@ -2668,6 +2955,138 @@
 
         // Update spots on page load
         updateRemainingSpots();
+
+        // ==========================================
+        // CAROUSEL FUNCTIONALITY
+        // ==========================================
+        const carouselTrack = document.getElementById('carouselTrack');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+
+        let currentSlide = 0;
+        let autoAdvanceInterval;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let userInteracted = false;
+
+        // Update carousel position
+        function updateCarousel(slideIndex) {
+            // Update slides
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === slideIndex) {
+                    slide.classList.add('active');
+                }
+            });
+
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === slideIndex) {
+                    dot.classList.add('active');
+                }
+            });
+
+            // Move track
+            const offset = -slideIndex * 100;
+            carouselTrack.style.transform = `translateX(${offset}%)`;
+            currentSlide = slideIndex;
+        }
+
+        // Next slide
+        function nextSlide() {
+            const next = (currentSlide + 1) % slides.length;
+            updateCarousel(next);
+        }
+
+        // Previous slide
+        function prevSlide() {
+            const prev = (currentSlide - 1 + slides.length) % slides.length;
+            updateCarousel(prev);
+        }
+
+        // Auto-advance carousel every 6 seconds
+        function startAutoAdvance() {
+            if (!userInteracted) {
+                autoAdvanceInterval = setInterval(nextSlide, 6000);
+            }
+        }
+
+        function stopAutoAdvance() {
+            clearInterval(autoAdvanceInterval);
+        }
+
+        // Event listeners for navigation buttons
+        prevBtn.addEventListener('click', () => {
+            userInteracted = true;
+            prevSlide();
+            stopAutoAdvance();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            userInteracted = true;
+            nextSlide();
+            stopAutoAdvance();
+        });
+
+        // Event listeners for dot indicators
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                userInteracted = true;
+                updateCarousel(index);
+                stopAutoAdvance();
+            });
+        });
+
+        // Pause auto-advance on hover
+        carouselWrapper.addEventListener('mouseenter', stopAutoAdvance);
+        carouselWrapper.addEventListener('mouseleave', startAutoAdvance);
+
+        // Touch/swipe support for mobile
+        carouselWrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carouselWrapper.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                userInteracted = true;
+                if (diff > 0) {
+                    // Swiped left - go to next
+                    nextSlide();
+                } else {
+                    // Swiped right - go to previous
+                    prevSlide();
+                }
+                stopAutoAdvance();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                userInteracted = true;
+                prevSlide();
+                stopAutoAdvance();
+            } else if (e.key === 'ArrowRight') {
+                userInteracted = true;
+                nextSlide();
+                stopAutoAdvance();
+            }
+        });
+
+        // Start auto-advance on page load
+        startAutoAdvance();
     </script>
 </body>
 </html>
