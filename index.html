@@ -3,230 +3,759 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StackSherpa - Coming Soon</title>
-    
-    <!-- Favicon (add after you generate it) -->
+    <meta name="description" content="StackSherpa - AI-powered code review for dbt engineers. Catch schema drift, missing tests, and expensive SQL patterns before they break production.">
+    <title>StackSherpa - AI Code Review for dbt Engineers</title>
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    
-    <!-- Fonts -->
+    <link rel="alternate icon" type="image/svg+xml" href="Assets/StackSherpa-Brand/05-favicon/favicon.svg">
+
+    <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-        html {
-            background: linear-gradient(135deg, #1a3a4d 0%, #2C5F7C 100%);
-            overflow: hidden;
-        }
+    <link rel="stylesheet" href="styles.css">
 
-        html, body {
-            overscroll-behavior: none;
-            /* Prevents the bounce/rubber band effect */
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #1a3a4d 0%, #2C5F7C 100%);
-            color: #ffffff;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            margin: 0;
-            overflow: hidden;
-        }
-
-        .container {
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-        }
-        
-        .logo {
-            width: 300px;
-            height: auto;
-            margin-bottom: 30px;
-        }
-        
-        h1 {
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .tagline {
-            font-size: 24px;
-            font-weight: 600;
-            color: #FF6B35;
-            margin-bottom: 30px;
-        }
-        
-        .description {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-        
-        .email-form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 500px;
-            margin: 0 auto 30px;
-        }
-        
-        .email-input {
-            flex: 1;
-            padding: 16px 20px;
-            font-size: 16px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 8px;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .email-input::placeholder {
-            color: rgba(255,255,255,0.6);
-        }
-        
-        .email-input:focus {
-            outline: none;
-            border-color: #FF6B35;
-            background: rgba(255,255,255,0.15);
-        }
-        
-        .submit-btn {
-            padding: 16px 32px;
-            font-size: 16px;
-            font-weight: 600;
-            background: #FF6B35;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.2s;
-        }
-        
-        .submit-btn:hover {
-            background: #cc5528;
-            transform: translateY(-2px);
-        }
-        
-        .launch-date {
-            font-size: 14px;
-            opacity: 0.7;
-            margin-bottom: 30px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 40px;
-        }
-        
-        .social-link {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-        
-        .social-link:hover {
-            color: #FF6B35;
-        }
-        
-        /* Mobile responsive */
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 36px;
-            }
-            
-            .tagline {
-                font-size: 20px;
-            }
-            
-            .description {
-                font-size: 16px;
-            }
-            
-            .submit-btn {
-                width: 100%;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Replace with your actual logo path -->
-        <img src="blue_logo.png" alt="StackSherpa" class="logo">
-        
-        <h1>Coming Soon</h1>
-        
-        <p class="tagline">Catch $500 mistakes in 10 seconds</p>
-        
-        <p class="description">
-            AI-powered code review for dbt engineers. 
-            We catch schema drift, missing tests, and expensive SQL patterns 
-            before they break production.
-        </p>
-        
-        <form class="email-form" id="waitlist-form">
-            <input
-                type="text"
-                class="email-input"
-                placeholder="Your Name"
-                required
-                id="name-input"
-            >
-            <input
-                type="email"
-                class="email-input"
-                placeholder="your.email@company.com"
-                required
-                id="email-input"
-            >
-            <button type="submit" class="submit-btn">Join Waitlist</button>
-        </form>
-        
-        <p class="launch-date">Launching January 2026</p>
-        
-        <!-- <div class="social-links">
-            <a href="https://github.com/yourusername" class="social-link" target="_blank">GitHub</a>
-            <a href="https://twitter.com/yourusername" class="social-link" target="_blank">Twitter</a>
-            <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank">LinkedIn</a>
-        </div> -->
-    </div>
-    
-    <script>
-        // Google Apps Script URL
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRxFpzYAVd2w5sB4SFJx1lpzbL0zN-UWlWH5n4QxelgFReSLTdS3rUfrEbrt6mYUk/exec';
+    <!-- Skip to main content for accessibility -->
+    <a href="#hero" class="skip-to-main">Skip to main content</a>
 
-        // Form handling with Google Apps Script
-        document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
+    <!-- ==========================================
+         NAVIGATION HEADER
+         ========================================== -->
+    <header>
+        <nav class="container" role="navigation" aria-label="Main navigation">
+            <a href="#hero" class="logo" aria-label="StackSherpa home">
+                <img src="Assets/StackSherpa-Brand/03-monochrome/black_logo.svg" alt="StackSherpa Logo" class="logo-image">
+                <span>StackSherpa</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#waitlist">Waitlist</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <a href="#" class="nav-btn-secondary">Coming Soon</a>
+                <a href="#waitlist" class="nav-btn-primary">Join the waitlist →</a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ==========================================
+         HERO SECTION
+         ========================================== -->
+    <main role="main">
+    <section id="hero">
+        <div class="container">
+            <!-- Floating Badge -->
+            <div class="floating-badge">
+                Loading...
+            </div>
+
+            <!-- Hero Content -->
+            <div class="hero-content">
+                <h1 class="hero-headline">
+                    Stop Merging PRs That <span class="gradient-text">Break Production</span>
+                </h1>
+
+                <p class="hero-subheadline">
+                    AI code review for dbt engineers. Catches schema drift, missing tests, and expensive SQL mistakes in 10 seconds.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#waitlist" class="btn-primary">Join Waitlist</a>
+                    <!-- <a href="#demo" class="btn-secondary">Watch Demo</a> -->
+                </div>
+
+                <p class="hero-small-text">
+                    Launching January 2026 · No credit card required
+                </p>
+
+                <!-- Product Screenshot -->
+                <div class="hero-screenshot">
+                    <img src="Assets/github-pr5-fix-screenshot.png" alt="StackSherpa GitHub PR Review Interface" class="hero-screenshot-image">
+                    <p class="screenshot-caption">StackSherpa reviews dbt PRs directly in GitHub</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         PROBLEM SECTION
+         ========================================== -->
+    <section id="problem">
+        <div class="container">
+            <h2 class="section-headline animate-on-scroll">Data Engineers Deserve Better Code Review</h2>
+
+            <div class="problem-cards">
+                <!-- Card 1 -->
+                <div class="problem-card animate-on-scroll">
+                    <span class="problem-icon">⚠️</span>
+                    <h3 class="problem-card-headline">Schema Changes Break Silently</h3>
+                    <p class="problem-card-description">
+                        Column renames break downstream models. Dashboards show wrong data for weeks. Nobody notices until the CFO asks questions.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="problem-card animate-on-scroll">
+                    <span class="problem-icon">😓</span>
+                    <h3 class="problem-card-headline">Manual Review Misses Things</h3>
+                    <p class="problem-card-description">
+                        10+ hours/week reviewing PRs. Junior engineers ship bugs. Senior engineers are overwhelmed and can't check everything.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="problem-card animate-on-scroll">
+                    <span class="problem-icon">🤷</span>
+                    <h3 class="problem-card-headline">Generic Tools Don't Understand dbt</h3>
+                    <p class="problem-card-description">
+                        CodeRabbit treats SQL like Python. Misses {{ ref() }} dependencies. Doesn't understand incremental models or schema.yml.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SOLUTION SECTION (also serves as Features)
+         ========================================== -->
+    <span id="features"></span>
+    <section id="solution">
+        <div class="container">
+            <h2 class="section-headline animate-on-scroll">Built for Data Engineering Workflows</h2>
+
+            <div class="solution-container">
+                <!-- Left: Screenshot -->
+                <div class="solution-screenshot">
+                    <img src="Assets/github-pr-screenshot.png" alt="StackSherpa GitHub PR Review showing performance warning for CROSS JOIN" class="solution-screenshot-image">
+                </div>
+
+                <!-- Right: Features -->
+                <div class="features-list">
+                    <!-- Feature 1 -->
+                    <div class="feature-item">
+                        <span class="feature-icon">🔍</span>
+                        <div class="feature-content">
+                            <h3 class="feature-headline">Schema Change Detection</h3>
+                            <p class="feature-description">
+                                Detects when column changes will break downstream models. Sees the full dependency chain in seconds.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-item">
+                        <span class="feature-icon">🛡️</span>
+                        <div class="feature-content">
+                            <h3 class="feature-headline">Smart Test Suggestions</h3>
+                            <p class="feature-description">
+                                AI suggests dbt tests based on column semantics. Explains why each test prevents production incidents.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <div class="feature-content">
+                            <h3 class="feature-headline">SQL Performance Analysis</h3>
+                            <p class="feature-description">
+                                Catches expensive queries before they hit your warehouse. Estimates costs and suggests optimizations.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <div class="feature-content">
+                            <h3 class="feature-headline">dbt-Native Understanding</h3>
+                            <p class="feature-description">
+                                Parses {{ ref() }}, {{ source() }}, and schema.yml. Understands incremental models and Jinja macros.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         HOW IT WORKS SECTION
+         ========================================== -->
+    <section id="how-it-works">
+        <div class="container">
+            <h2 class="section-headline animate-on-scroll">Ship Faster, Break Less</h2>
+
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div class="step animate-on-scroll">
+                    <div class="step-number">01</div>
+                    <h3 class="step-headline">Install GitHub App</h3>
+                    <p class="step-description">
+                        One-click install. Select which repos to enable. Takes 60 seconds.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step animate-on-scroll">
+                    <div class="step-number">02</div>
+                    <h3 class="step-headline">Open PR with dbt Changes</h3>
+                    <p class="step-description">
+                        Modify models, update schema.yml, change dbt_project.yml - work like you normally do.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step animate-on-scroll">
+                    <div class="step-number">03</div>
+                    <h3 class="step-headline">Get AI Review in 10 Seconds</h3>
+                    <p class="step-description">
+                        StackSherpa posts inline comments on your PR with specific issues and fixes.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step animate-on-scroll">
+                    <div class="step-number">04</div>
+                    <h3 class="step-headline">Fix Issues Before Production</h3>
+                    <p class="step-description">
+                        Address breaking changes, add tests, optimize SQL - all before merging.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         PRICING SECTION
+         ========================================== -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-headline animate-on-scroll">Simple, Transparent Pricing</h2>
+            <p class="section-subheadline">No contracts. Cancel anytime. 14-day free trial.</p>
+
+            <!-- Founder Pricing Banner -->
+            <div class="founder-pricing-banner">
+                🚀 Founder Pricing: First 100 customers lock in £19/month forever · <span class="spots-remaining">Loading...</span>
+            </div>
+
+            <div class="pricing-cards">
+                <!-- Free Card -->
+                <div class="pricing-card animate-on-scroll">
+                    <h3 class="pricing-tier">Free</h3>
+                    <div class="pricing-price">£0/month</div>
+                    <p class="pricing-description">For individuals trying StackSherpa</p>
+                    <ul class="pricing-features">
+                        <li>5 PR reviews per month</li>
+                        <li>Basic schema change detection</li>
+                        <li>Public repositories only</li>
+                        <li>Community support</li>
+                    </ul>
+                    <a href="#waitlist" class="btn-secondary">Get Started</a>
+                </div>
+
+                <!-- Team Card (Highlighted) -->
+                <div class="pricing-card highlighted animate-on-scroll">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3 class="pricing-tier">Team</h3>
+                    <div class="pricing-price">
+                        <span class="pricing-price-old">£29</span>
+                        £19/user/month
+                    </div>
+                    <p class="pricing-description">For data engineering teams</p>
+                    <ul class="pricing-features">
+                        <li>Unlimited PR reviews</li>
+                        <li>Full schema analysis</li>
+                        <li>Private repositories</li>
+                        <li>SQL performance warnings</li>
+                        <li>Test coverage suggestions</li>
+                        <li>Email support (48h response)</li>
+                        <li>14-day free trial</li>
+                    </ul>
+                    <a href="#waitlist" class="btn-primary">Join Waitlist</a>
+                </div>
+
+                <!-- Professional Card -->
+                <div class="pricing-card animate-on-scroll">
+                    <h3 class="pricing-tier">Professional</h3>
+                    <div class="pricing-price">£49/user/month</div>
+                    <p class="pricing-description">For larger teams & enterprises</p>
+                    <ul class="pricing-features">
+                        <li>Everything in Team, plus:</li>
+                        <li>Deep lineage analysis (5+ levels)</li>
+                        <li>Custom rule builder</li>
+                        <li>PR quality dashboard</li>
+                        <li>Priority support (24h)</li>
+                        <li>API access</li>
+                    </ul>
+                    <a href="#contact" class="btn-secondary">Coming soon</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SOCIAL PROOF SECTION
+         ========================================== -->
+    <section id="social-proof">
+        <div class="container">
+            <h2 class="section-headline animate-on-scroll">Production Incidents StackSherpa Prevents</h2>
+            <p class="section-subheadline">Real incidents from data teams (2024-2025)</p>
+
+            <!-- Incident Carousel -->
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Slide 1: The $523 CROSS JOIN Mistake -->
+                        <article class="carousel-slide active">
+                            <div class="carousel-icon">🔥</div>
+                            <h3 class="carousel-title">The $523 CROSS JOIN Mistake</h3>
+                            <div class="carousel-description">
+                                <p>Missing <code>ON</code> clause in join query. Users table (2M rows) × Events table (500M rows) = 1 trillion intermediate rows. Query ran for over an hour on large Snowflake warehouse.</p>
+                            </div>
+                            <div class="carousel-impact">
+                                <strong>Impact:</strong> Quarterly budget blown on one query, CTO escalation
+                            </div>
+                            <p class="carousel-source">Source: r/dataengineering, March 2024</p>
+                            <a href="#solution" class="carousel-cta">How StackSherpa Prevents This →</a>
+                        </article>
+
+                        <!-- Slide 2: The Column Rename That Broke Finance -->
+                        <article class="carousel-slide">
+                            <div class="carousel-icon">⚠️</div>
+                            <h3 class="carousel-title">The Column Rename That Broke Finance</h3>
+                            <div class="carousel-description">
+                                <p>Column renamed from <code>user_id</code> to <code>customer_id</code>. PR approved with "LGTM". Three downstream models broke silently. Wrong revenue numbers shown to board for 2 weeks.</p>
+                            </div>
+                            <div class="carousel-impact">
+                                <strong>Impact:</strong> $50K in bad decisions, emergency weekend fix
+                            </div>
+                            <p class="carousel-source">Source: dbt Community Slack, May 2024</p>
+                            <a href="#solution" class="carousel-cta">How StackSherpa Prevents This →</a>
+                        </article>
+
+                        <!-- Slide 3: The Incremental Model That Duplicated Everything -->
+                        <article class="carousel-slide">
+                            <div class="carousel-icon">⚠️</div>
+                            <h3 class="carousel-title">The Incremental Model That Duplicated Everything</h3>
+                            <div class="carousel-description">
+                                <p>Incremental model used <code>&gt;=</code> instead of <code>&gt;</code>. Re-processed previous day on every run. Duplicates accumulated for 3 months. All Q2 KPIs incorrect.</p>
+                            </div>
+                            <div class="carousel-impact">
+                                <strong>Impact:</strong> Lost customer trust, full data reconciliation required
+                            </div>
+                            <p class="carousel-source">Source: dbt Discourse, August 2024</p>
+                            <a href="#solution" class="carousel-cta">How StackSherpa Prevents This →</a>
+                        </article>
+                    </div>
+
+                    <!-- Navigation Arrows -->
+                    <button class="carousel-arrow carousel-arrow-prev" id="prevBtn" aria-label="Previous slide">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="carousel-arrow carousel-arrow-next" id="nextBtn" aria-label="Next slide">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Dot Indicators -->
+                <div class="carousel-dots" id="carouselDots">
+                    <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                    <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                    <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                </div>
+            </div>
+
+            <!-- Footer Disclaimer -->
+            <p class="incidents-disclaimer">
+                Stories based on documented incidents from dbt Community forums, r/dataengineering, and data engineer interviews. Details anonymized.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CTA SECTION
+         ========================================== -->
+    <section id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-headline">Stop Breaking Production. Start Shipping with Confidence.</h2>
+                <p class="cta-description" style="margin-bottom: 48px;">Join the data engineers who catch $500 mistakes in 10 seconds</p>
+                <a href="#waitlist" class="btn-primary btn-large">Join the Waitlist — It's Free</a>
+
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">⚡</span>
+                        <span class="trust-badge-text">Setup in 2 minutes</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">💳</span>
+                        <span class="trust-badge-text">No credit card required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FAQ SECTION
+         ========================================== -->
+    <section id="faq">
+        <div class="container">
+            <div class="faq-container">
+                <h2 class="section-headline animate-on-scroll">Frequently Asked Questions</h2>
+
+                <div class="faq-list">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How is StackSherpa different from CodeRabbit or other AI code review tools?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>CodeRabbit and similar tools are general-purpose - they treat SQL like any other code. StackSherpa is built specifically for dbt and understands data engineering semantics. We parse {{ ref() }} and {{ source() }}, understand schema.yml files, analyze downstream dependencies, and explain business impact of changes. We're specialists, not generalists.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do I need to be a dbt expert to use StackSherpa?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No! StackSherpa is actually great for learning. Our AI comments explain WHY things matter and teach best practices. Many users tell us it's helped their junior engineers level up. If you use dbt, StackSherpa will help you write better models.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What data warehouses do you support?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>StackSherpa works with any data warehouse that dbt supports - Snowflake, BigQuery, Redshift, Databricks, Postgres, and more. We analyze your dbt code, not your warehouse directly, so we're warehouse-agnostic.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How long does a review take?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Most PRs are reviewed in under 10 seconds. Complex PRs with many changed files might take 20-30 seconds. You'll see a 'Review in progress' status check in GitHub, then inline comments appear on your PR automatically.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Is my code secure? Do you store it?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We clone your code temporarily to analyze it, then delete it immediately after the review. We never store your dbt models or SQL. We only keep metadata (file names, line numbers) to post comments. Your code stays in your GitHub repo.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I cancel anytime?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, absolutely. No contracts, no commitments. Cancel from your account dashboard anytime. If you locked in founder pricing (£19/month), that rate is yours forever if you stay subscribed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         WAITLIST SECTION
+         ========================================== -->
+    <section id="waitlist">
+        <div class="container">
+            <div class="waitlist-content">
+                <h2 class="section-title animate-on-scroll">Join the Waitlist</h2>
+                <p class="section-subtitle">Be among the first to experience AI-powered dbt code review. No credit card required.</p>
+
+                <form id="waitlistForm" class="waitlist-form">
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="Full Name"
+                        required
+                        class="form-input"
+                    >
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Work Email"
+                        required
+                        class="form-input"
+                    >
+
+                    <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        placeholder="Company Name"
+                        required
+                        class="form-input"
+                    >
+
+                    <select
+                        id="teamSize"
+                        name="teamSize"
+                        required
+                        class="form-input form-select"
+                    >
+                        <option value="" disabled selected>Team Size</option>
+                        <option value="1-5">1-5 engineers</option>
+                        <option value="6-20">6-20 engineers</option>
+                        <option value="21-50">21-50 engineers</option>
+                        <option value="51+">51+ engineers</option>
+                    </select>
+
+                    <button type="submit" class="btn-primary btn-large">Join Waitlist</button>
+                </form>
+
+                <div id="successMessage" class="success-message">
+                    <h3>🎉 You're on the list!</h3>
+                    <p>We'll email you when StackSherpa is ready for early access.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Left Column: Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="Assets/StackSherpa-Brand/03-monochrome/black_logo.svg" alt="StackSherpa Logo" class="footer-logo-image">
+                        <span>StackSherpa</span>
+                    </div>
+                    <p class="footer-tagline">Your AI guide through the data stack</p>
+                    <p class="footer-subtext">Prevent production incidents before they happen</p>
+                </div>
+
+                <!-- Middle Column: Product Links -->
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#solution">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#waitlist">Waitlist</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Column: Connect -->
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <!-- <div class="social-links">
+                        <a href="#" class="social-link" aria-label="GitHub" title="GitHub">💻</a>
+                        <a href="#" class="social-link" aria-label="Twitter" title="Twitter">🐦</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn" title="LinkedIn">💼</a>
+                        <a href="#" class="social-link" aria-label="Discord" title="Discord">💬</a>
+                    </div> -->
+                    <a href="mailto:support@stacksherpa.ai" class="footer-email">support@stacksherpa.ai</a>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2025 StackSherpa. All rights reserved.
+                </div>
+                <div class="footer-legal">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <span>·</span>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+
+            <!-- Built with love message -->
+            <div class="footer-built-with">
+                Built with ❤️ by FAANG engineers to prevent <a href="https://www.linkedin.com/posts/shubham-srivstv_it-was-342-am-a-junior-data-engineer-had-activity-7344759235240521730-dqFS" target="_blank" rel="noopener noreferrer">those 3am data incidents</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         JAVASCRIPT
+         ========================================== -->
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            const isActive = navLinks.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isActive);
+        });
+
+        // Close mobile menu when clicking on a link
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Smooth scroll enhancement (optional, since CSS handles it)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header (optional enhancement)
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            // Add shadow on scroll
+            if (currentScroll > 10) {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // FAQ Accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+
+            question.addEventListener('click', () => {
+                // Toggle active class on clicked item
+                const isActive = item.classList.contains('active');
+
+                // Optional: Close all other FAQ items (accordion behavior)
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        const otherIcon = otherItem.querySelector('.faq-icon');
+                        otherIcon.textContent = '+';
+                    }
+                });
+
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                    question.querySelector('.faq-icon').textContent = '+';
+                } else {
+                    item.classList.add('active');
+                    question.querySelector('.faq-icon').textContent = '−';
+                }
+            });
+        });
+
+        // Waitlist form validation and submission
+        const waitlistForm = document.getElementById('waitlistForm');
+        const successMessage = document.getElementById('successMessage');
+
+        // Google Apps Script URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxjGturmR_Q25CeGjrX3bBr55S9SBIyNGp0L1zeKGb22k8B7EjxswRM6_x-JU5h8uI/exec'
+
+        waitlistForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const name = document.getElementById('name-input').value;
-            const email = document.getElementById('email-input').value;
+            // Get form values
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const company = document.getElementById('company').value.trim();
+            const teamSize = document.getElementById('teamSize').value;
 
             console.log('Form submitted!');
-            console.log('Name:', name);
+            console.log('Name:', fullName);
             console.log('Email:', email);
+            console.log('Company:', company);
+            console.log('Team Size:', teamSize);
             console.log('Script URL:', GOOGLE_SCRIPT_URL);
 
+            // Email validation regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Validation
+            if (!fullName) {
+                alert('Please enter your full name');
+                return;
+            }
+
+            if (!email || !emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            if (!company) {
+                alert('Please enter your company name');
+                return;
+            }
+
+            if (!teamSize) {
+                alert('Please select your team size');
+                return;
+            }
+
+            // Disable submit button to prevent double submission
+            const submitButton = waitlistForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Joining...';
+
             const payload = {
-                name: name,
+                name: fullName,
                 email: email,
+                company: company,
+                teamSize: teamSize,
                 timestamp: new Date().toISOString()
             };
 
@@ -243,17 +772,326 @@
                 });
 
                 console.log('Request sent successfully (no-cors mode)');
-                alert('Thanks for joining!');
 
-                // Clear form
-                document.getElementById('name-input').value = '';
-                document.getElementById('email-input').value = '';
+                // Show success message
+                waitlistForm.style.display = 'none';
+                successMessage.style.display = 'block';
+
+                // Reset form
+                waitlistForm.reset();
+
+                // Update remaining spots count after successful submission
+                // Wait a moment for Google Sheets to update, then refresh the count
+                setTimeout(() => {
+                    updateRemainingSpots();
+                }, 1000);
 
             } catch (error) {
                 console.error('Error submitting form:', error);
                 alert('Error: ' + error.message);
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
             }
         });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Body scroll lock for mobile menu
+        const body = document.body;
+        const mobileMenuToggle = document.querySelector('.menu-toggle');
+        const navLinksMenu = document.querySelector('.nav-links');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                const isActive = navLinksMenu.classList.contains('active');
+                if (isActive) {
+                    body.style.overflow = '';
+                } else {
+                    body.style.overflow = 'hidden';
+                }
+            });
+
+            // Close menu when clicking a link
+            const mobileNavItems = navLinksMenu.querySelectorAll('a');
+            mobileNavItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    body.style.overflow = '';
+                });
+            });
+        }
+
+        // Currency detection - Use £ for UK, $ for everywhere else
+        async function detectAndSetCurrency() {
+            try {
+                // Try to detect user's country via timezone
+                const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                const isUK = timezone.includes('London') || timezone.includes('Europe/London');
+
+                // If not UK, convert £ to $
+                if (!isUK) {
+                    const conversionRate = 1.27; // Approximate GBP to USD rate
+
+                    // Update all pricing elements
+                    document.querySelectorAll('.pricing-price, .pricing-price-old, .founder-pricing-banner').forEach(element => {
+                        let text = element.textContent;
+
+                        // Replace £0 with $0 (free tier)
+                        text = text.replace('£0', '$0');
+
+                        // Replace £19 with $24
+                        text = text.replace('£19', '$24');
+
+                        // Replace £29 with $37
+                        text = text.replace('£29', '$37');
+
+                        // Replace £49 with $62
+                        text = text.replace('£49', '$62');
+
+                        element.textContent = text;
+                    });
+
+                    // Update FAQ text
+                    document.querySelectorAll('.faq-answer').forEach(element => {
+                        let text = element.textContent;
+                        text = text.replace('£19/month', '$24/month');
+                        element.textContent = text;
+                    });
+                }
+            } catch (error) {
+                console.log('Currency detection skipped:', error);
+                // Default to £ if detection fails
+            }
+        }
+
+        // Run currency detection on page load
+        detectAndSetCurrency();
+
+        // Fetch and update remaining spots dynamically
+        async function updateRemainingSpots() {
+            try {
+                // Fetch current spot count from Google Apps Script
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'GET',
+                    mode: 'cors' // Use cors for GET to read the response
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success' && data.remainingSpots !== undefined) {
+                    const spotsRemaining = data.remainingSpots;
+
+                    // Update floating badge
+                    const floatingBadge = document.querySelector('.floating-badge');
+                    if (floatingBadge) {
+                        if (spotsRemaining > 0) {
+                            floatingBadge.textContent = `${spotsRemaining} spots left`;
+                            floatingBadge.style.display = 'block';
+                        } else {
+                            // Hide the badge when no spots left
+                            floatingBadge.style.display = 'none';
+                        }
+                    }
+
+                    // Handle founder pricing banner and Team pricing
+                    const founderBanner = document.querySelector('.founder-pricing-banner');
+                    const teamPriceElement = document.querySelector('.pricing-card.highlighted .pricing-price');
+                    const teamOldPrice = document.querySelector('.pricing-card.highlighted .pricing-price-old');
+
+                    if (spotsRemaining > 0) {
+                        // Show founder pricing banner
+                        if (founderBanner) {
+                            founderBanner.style.display = 'block';
+                        }
+                        // Update spots remaining text
+                        const spotsRemainingSpan = document.querySelector('.spots-remaining');
+                        if (spotsRemainingSpan) {
+                            spotsRemainingSpan.textContent = `${spotsRemaining} spots remaining`;
+                            spotsRemainingSpan.style.display = 'inline';
+                        }
+                    } else {
+                        // Hide founder pricing banner completely
+                        if (founderBanner) {
+                            founderBanner.style.display = 'none';
+                        }
+
+                        // Update Team pricing to £29 (no discount)
+                        if (teamPriceElement) {
+                            const currentText = teamPriceElement.textContent;
+                            // Check if user is in UK or not
+                            const isUK = Intl.DateTimeFormat().resolvedOptions().timeZone.includes('London');
+                            const newPrice = isUK ? '£29/user/month' : '$37/user/month';
+
+                            // Update the price text to regular price
+                            teamPriceElement.innerHTML = newPrice;
+                        }
+
+                        // Hide the strikethrough old price
+                        if (teamOldPrice) {
+                            teamOldPrice.style.display = 'none';
+                        }
+                    }
+
+                    console.log(`Updated remaining spots: ${spotsRemaining}`);
+                } else {
+                    console.log('Could not fetch spot count, using default value');
+                }
+            } catch (error) {
+                console.log('Error fetching remaining spots:', error);
+                // Keep the hardcoded values if fetch fails
+            }
+        }
+
+        // Update spots on page load
+        updateRemainingSpots();
+
+        // ==========================================
+        // CAROUSEL FUNCTIONALITY
+        // ==========================================
+        const carouselTrack = document.getElementById('carouselTrack');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+
+        let currentSlide = 0;
+        let autoAdvanceInterval;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let userInteracted = false;
+
+        // Update carousel position
+        function updateCarousel(slideIndex) {
+            // Update slides
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === slideIndex) {
+                    slide.classList.add('active');
+                }
+            });
+
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === slideIndex) {
+                    dot.classList.add('active');
+                }
+            });
+
+            // Move track
+            const offset = -slideIndex * 100;
+            carouselTrack.style.transform = `translateX(${offset}%)`;
+            currentSlide = slideIndex;
+        }
+
+        // Next slide
+        function nextSlide() {
+            const next = (currentSlide + 1) % slides.length;
+            updateCarousel(next);
+        }
+
+        // Previous slide
+        function prevSlide() {
+            const prev = (currentSlide - 1 + slides.length) % slides.length;
+            updateCarousel(prev);
+        }
+
+        // Auto-advance carousel every 6 seconds
+        function startAutoAdvance() {
+            if (!userInteracted) {
+                autoAdvanceInterval = setInterval(nextSlide, 6000);
+            }
+        }
+
+        function stopAutoAdvance() {
+            clearInterval(autoAdvanceInterval);
+        }
+
+        // Event listeners for navigation buttons
+        prevBtn.addEventListener('click', () => {
+            userInteracted = true;
+            prevSlide();
+            stopAutoAdvance();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            userInteracted = true;
+            nextSlide();
+            stopAutoAdvance();
+        });
+
+        // Event listeners for dot indicators
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                userInteracted = true;
+                updateCarousel(index);
+                stopAutoAdvance();
+            });
+        });
+
+        // Pause auto-advance on hover
+        carouselWrapper.addEventListener('mouseenter', stopAutoAdvance);
+        carouselWrapper.addEventListener('mouseleave', startAutoAdvance);
+
+        // Touch/swipe support for mobile
+        carouselWrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carouselWrapper.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                userInteracted = true;
+                if (diff > 0) {
+                    // Swiped left - go to next
+                    nextSlide();
+                } else {
+                    // Swiped right - go to previous
+                    prevSlide();
+                }
+                stopAutoAdvance();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                userInteracted = true;
+                prevSlide();
+                stopAutoAdvance();
+            } else if (e.key === 'ArrowRight') {
+                userInteracted = true;
+                nextSlide();
+                stopAutoAdvance();
+            }
+        });
+
+        // Start auto-advance on page load
+        startAutoAdvance();
     </script>
 </body>
 </html>
