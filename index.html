@@ -2376,92 +2376,6 @@
             <p class="incidents-disclaimer">
                 Stories based on documented incidents from dbt Community forums, r/dataengineering, and data engineer interviews. Details anonymized.
             </p>
-
-            <!-- CTA After Incidents -->
-            <div class="incidents-cta">
-                <h3 class="incidents-cta-headline">Don't Let This Happen to Your Team</h3>
-                <a href="#waitlist" class="btn-primary btn-large">Join Waitlist</a>
-                <p class="incidents-cta-subtext">StackSherpa catches these issues in 10 seconds, before they reach production</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================
-         FAQ SECTION
-         ========================================== -->
-    <section id="faq">
-        <div class="container">
-            <div class="faq-container">
-                <h2 class="section-headline animate-on-scroll">Frequently Asked Questions</h2>
-
-                <div class="faq-list">
-                    <!-- FAQ 1 -->
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>How is StackSherpa different from CodeRabbit or other AI code review tools?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>CodeRabbit and similar tools are general-purpose - they treat SQL like any other code. StackSherpa is built specifically for dbt and understands data engineering semantics. We parse {{ ref() }} and {{ source() }}, understand schema.yml files, analyze downstream dependencies, and explain business impact of changes. We're specialists, not generalists.</p>
-                        </div>
-                    </div>
-
-                    <!-- FAQ 2 -->
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>Do I need to be a dbt expert to use StackSherpa?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>No! StackSherpa is actually great for learning. Our AI comments explain WHY things matter and teach best practices. Many users tell us it's helped their junior engineers level up. If you use dbt, StackSherpa will help you write better models.</p>
-                        </div>
-                    </div>
-
-                    <!-- FAQ 3 -->
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>What data warehouses do you support?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>StackSherpa works with any data warehouse that dbt supports - Snowflake, BigQuery, Redshift, Databricks, Postgres, and more. We analyze your dbt code, not your warehouse directly, so we're warehouse-agnostic.</p>
-                        </div>
-                    </div>
-
-                    <!-- FAQ 4 -->
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>How long does a review take?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Most PRs are reviewed in under 10 seconds. Complex PRs with many changed files might take 20-30 seconds. You'll see a 'Review in progress' status check in GitHub, then inline comments appear on your PR automatically.</p>
-                        </div>
-                    </div>
-
-                    <!-- FAQ 5 -->
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>Is my code secure? Do you store it?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>We clone your code temporarily to analyze it, then delete it immediately after the review. We never store your dbt models or SQL. We only keep metadata (file names, line numbers) to post comments. Your code stays in your GitHub repo.</p>
-                        </div>
-                    </div>
-
-                    <!-- FAQ 6 -->
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>Can I cancel anytime?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Yes, absolutely. No contracts, no commitments. Cancel from your account dashboard anytime. If you locked in founder pricing (£19/month), that rate is yours forever if you stay subscribed.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -2549,6 +2463,85 @@
             </div>
         </div>
     </section>
+
+    <!-- ==========================================
+         FAQ SECTION
+         ========================================== -->
+    <section id="faq">
+        <div class="container">
+            <div class="faq-container">
+                <h2 class="section-headline animate-on-scroll">Frequently Asked Questions</h2>
+
+                <div class="faq-list">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How is StackSherpa different from CodeRabbit or other AI code review tools?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>CodeRabbit and similar tools are general-purpose - they treat SQL like any other code. StackSherpa is built specifically for dbt and understands data engineering semantics. We parse {{ ref() }} and {{ source() }}, understand schema.yml files, analyze downstream dependencies, and explain business impact of changes. We're specialists, not generalists.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do I need to be a dbt expert to use StackSherpa?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No! StackSherpa is actually great for learning. Our AI comments explain WHY things matter and teach best practices. Many users tell us it's helped their junior engineers level up. If you use dbt, StackSherpa will help you write better models.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What data warehouses do you support?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>StackSherpa works with any data warehouse that dbt supports - Snowflake, BigQuery, Redshift, Databricks, Postgres, and more. We analyze your dbt code, not your warehouse directly, so we're warehouse-agnostic.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How long does a review take?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Most PRs are reviewed in under 10 seconds. Complex PRs with many changed files might take 20-30 seconds. You'll see a 'Review in progress' status check in GitHub, then inline comments appear on your PR automatically.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Is my code secure? Do you store it?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We clone your code temporarily to analyze it, then delete it immediately after the review. We never store your dbt models or SQL. We only keep metadata (file names, line numbers) to post comments. Your code stays in your GitHub repo.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I cancel anytime?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, absolutely. No contracts, no commitments. Cancel from your account dashboard anytime. If you locked in founder pricing (£19/month), that rate is yours forever if you stay subscribed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     </main>
 
     <!-- ==========================================
@@ -2605,7 +2598,7 @@
 
             <!-- Built with love message -->
             <div class="footer-built-with">
-                Built with ❤️ by FAANG to prevent <a href="https://www.linkedin.com/posts/shubham-srivstv_it-was-342-am-a-junior-data-engineer-had-activity-7344759235240521730-dqFS" target="_blank" rel="noopener noreferrer">those 3am data incidents</a>
+                Built with ❤️ by FAANG engineers to prevent <a href="https://www.linkedin.com/posts/shubham-srivstv_it-was-342-am-a-junior-data-engineer-had-activity-7344759235240521730-dqFS" target="_blank" rel="noopener noreferrer">those 3am data incidents</a>
             </div>
         </div>
     </footer>
