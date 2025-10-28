@@ -503,6 +503,7 @@
            ========================================== */
         #how-it-works {
             padding: var(--space-2xl) 0;
+            padding-bottom: var(--space-lg); /* Reduced bottom padding */
             background: rgba(0, 0, 0, 0.02);
         }
 
@@ -564,6 +565,7 @@
            ========================================== */
         #pricing {
             padding: var(--space-2xl) 0;
+            padding-top: var(--space-lg); /* Reduced top padding */
         }
 
         .section-subheadline {
@@ -2323,6 +2325,9 @@
         const waitlistForm = document.getElementById('waitlistForm');
         const successMessage = document.getElementById('successMessage');
 
+        // Google Apps Script URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwRxFpzYAVd2w5sB4SFJx1lpzbL0zN-UWlWH5n4QxelgFReSLTdS3rUfrEbrt6mYUk/exec';
+
         waitlistForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
@@ -2331,6 +2336,13 @@
             const email = document.getElementById('email').value.trim();
             const company = document.getElementById('company').value.trim();
             const teamSize = document.getElementById('teamSize').value;
+
+            console.log('Form submitted!');
+            console.log('Name:', fullName);
+            console.log('Email:', email);
+            console.log('Company:', company);
+            console.log('Team Size:', teamSize);
+            console.log('Script URL:', GOOGLE_SCRIPT_URL);
 
             // Email validation regex
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -2362,24 +2374,27 @@
             submitButton.disabled = true;
             submitButton.textContent = 'Joining...';
 
-            try {
-                // Google Apps Script endpoint (we'll add integration later)
-                const GOOGLE_SCRIPT_URL = 'https://script.google.com/a/macros/stacksherpa.ai/s/AKfycbw...';
+            const payload = {
+                name: fullName,
+                email: email,
+                company: company,
+                teamSize: teamSize,
+                timestamp: new Date().toISOString()
+            };
 
+            console.log('Sending payload:', payload);
+
+            try {
                 const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        name: fullName,
-                        email: email,
-                        company: company,
-                        teamSize: teamSize,
-                        timestamp: new Date().toISOString()
-                    })
+                    body: JSON.stringify(payload)
                 });
+
+                console.log('Request sent successfully (no-cors mode)');
 
                 // Show success message
                 waitlistForm.style.display = 'none';
@@ -2390,7 +2405,7 @@
 
             } catch (error) {
                 console.error('Error submitting form:', error);
-                alert('Something went wrong. Please try again.');
+                alert('Error: ' + error.message);
                 submitButton.disabled = false;
                 submitButton.textContent = originalButtonText;
             }
