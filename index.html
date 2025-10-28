@@ -6,8 +6,9 @@
     <meta name="description" content="StackSherpa - AI-powered code review for dbt engineers. Catch schema drift, missing tests, and expensive SQL patterns before they break production.">
     <title>StackSherpa - AI Code Review for dbt Engineers</title>
 
-    <!-- Favicon placeholder -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" type="image/svg+xml" href="Assets/StackSherpa-Brand/05-favicon/favicon.svg">
 
     <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -98,10 +99,18 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-size: var(--text-lg);
             font-weight: 700;
             color: var(--text-primary);
             text-decoration: none;
+        }
+
+        .logo-image {
+            height: 40px;
+            width: auto;
         }
 
         .nav-links {
@@ -1135,13 +1144,24 @@
         }
 
         .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 12px;
+        }
+
+        .footer-logo span {
             background: linear-gradient(135deg, var(--gradient-blue), var(--gradient-teal));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        .footer-logo-image {
+            height: 32px;
+            width: auto;
         }
 
         .footer-tagline {
@@ -1621,7 +1641,10 @@
          ========================================== -->
     <header>
         <nav class="container" role="navigation" aria-label="Main navigation">
-            <a href="#hero" class="logo" aria-label="StackSherpa home">StackSherpa</a>
+            <a href="#hero" class="logo" aria-label="StackSherpa home">
+                <img src="Assets/StackSherpa-Brand/03-monochrome/black_logo.svg" alt="StackSherpa Logo" class="logo-image">
+                <span>StackSherpa</span>
+            </a>
 
             <ul class="nav-links" id="navLinks">
                 <li><a href="#features">Features</a></li>
@@ -2167,7 +2190,10 @@
             <div class="footer-content">
                 <!-- Left Column: Brand -->
                 <div class="footer-brand">
-                    <div class="footer-logo">StackSherpa</div>
+                    <div class="footer-logo">
+                        <img src="Assets/StackSherpa-Brand/03-monochrome/black_logo.svg" alt="StackSherpa Logo" class="footer-logo-image">
+                        <span>StackSherpa</span>
+                    </div>
                     <p class="footer-tagline">Your AI guide through the data stack</p>
                     <p class="footer-subtext">Prevent production incidents before they happen</p>
                 </div>
