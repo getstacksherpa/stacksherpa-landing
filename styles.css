@@ -362,6 +362,241 @@
             animation: float 3s ease-in-out infinite;
         }
 
+        /* ==========================================
+           TRUST SCORE VISUAL (NEW)
+           ========================================== */
+        .trust-score-visual {
+            max-width: 700px;
+            width: 100%;
+            margin: 60px auto 0;
+            padding: 32px;
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .score-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .score-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .score-range {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .score-improvement {
+            font-size: 16px;
+            font-weight: 600;
+            color: #10b981;
+            margin-left: 8px;
+        }
+
+        .score-bar-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .score-zones {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-bottom: 8px;
+        }
+
+        .zone {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 4px 0;
+        }
+
+        .zone-poor {
+            color: #ef4444;
+        }
+
+        .zone-fair {
+            color: #f59e0b;
+        }
+
+        .zone-good {
+            color: #10b981;
+        }
+
+        .zone-excellent {
+            color: #3b82f6;
+        }
+
+        .score-bar-track {
+            position: relative;
+            width: 100%;
+            height: 32px;
+            background: linear-gradient(
+                to right,
+                #ef4444 0%, #ef4444 25%,      /* POOR: red */
+                #f59e0b 25%, #f59e0b 50%,     /* FAIR: orange */
+                #10b981 50%, #10b981 75%,     /* GOOD: green */
+                #3b82f6 75%, #3b82f6 100%     /* EXCELLENT: blue */
+            );
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .score-bar-fill {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .score-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
+            animation: fillScore 2s ease-out forwards;
+            transform-origin: left;
+        }
+
+        .progress-arrow {
+            opacity: 0;
+            animation: fadeInArrow 0.5s ease-in 1.8s forwards;
+        }
+
+        @keyframes fadeInArrow {
+            from {
+                opacity: 0;
+                transform: translateY(-50%) translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(-50%) translateX(0);
+            }
+        }
+
+        @keyframes fillScore {
+            from {
+                width: 3.9%; /* 33/850 */
+            }
+            to {
+                width: 54.7%; /* 465/850 */
+            }
+        }
+
+        .score-marker {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        .score-label {
+            display: inline-block;
+            background: #FFFFFF;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
+            letter-spacing: -0.02em;
+        }
+
+        .score-before .score-label {
+            border: 2px solid #ef4444;
+            opacity: 0.7;
+        }
+
+        .score-after .score-label {
+            border: 3px solid #3b82f6;
+            animation: pulseScore 1.5s ease-in-out 2s infinite;
+        }
+
+        @keyframes pulseScore {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .score-meta {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .meta-stat {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .meta-stat strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .score-caption {
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-top: 16px;
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .trust-score-visual {
+                padding: 24px 20px;
+                margin: 40px auto 0;
+            }
+
+            .score-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                margin-bottom: 20px;
+            }
+
+            .score-range {
+                font-size: 20px;
+            }
+
+            .score-improvement {
+                font-size: 14px;
+            }
+
+            .zone {
+                font-size: 9px;
+                padding: 3px 0;
+            }
+
+            .score-label {
+                font-size: 14px;
+                padding: 5px 10px;
+            }
+
+            .meta-stat {
+                font-size: 12px;
+            }
+
+            .progress-arrow {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
         .screenshot-placeholder p {
             color: var(--text-gray);
             font-size: var(--text-base);

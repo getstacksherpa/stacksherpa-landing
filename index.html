@@ -58,35 +58,62 @@
     <main role="main">
     <section id="hero">
         <div class="container">
-            <!-- Floating Badge -->
-            <div class="floating-badge">
-                Loading...
-            </div>
-
             <!-- Hero Content -->
             <div class="hero-content">
                 <h1 class="hero-headline">
-                    Stop Merging PRs That <span class="gradient-text">Break Production</span>
+                    Know Your <span class="gradient-text">Data Quality Score</span>
                 </h1>
 
                 <p class="hero-subheadline">
-                    AI code review for dbt engineers. Catches schema drift, missing tests, and expensive SQL mistakes in 10 seconds.
+                    Every dbt model gets a Trust Score (0-850). See exactly where you stand, what's missing, and how to reach 750+ through guided improvements.
                 </p>
 
                 <div class="hero-cta">
-                    <a href="#waitlist" class="btn-primary">Join Waitlist</a>
-                    <!-- <a href="#demo" class="btn-secondary">Watch Demo</a> -->
+                    <a href="#waitlist" class="btn-primary">See My Score</a>
                 </div>
 
                 <p class="hero-small-text">
-                    Launching January 2026 · No credit card required
+                    10-second analysis · No signup required
                 </p>
 
-                <!-- Product Screenshot -->
-                <div class="hero-screenshot">
-                    <img src="Assets/github-pr5-fix-screenshot.png" alt="StackSherpa GitHub PR Review Interface" class="hero-screenshot-image">
-                    <p class="screenshot-caption">StackSherpa reviews dbt PRs directly in GitHub</p>
+                <!-- Trust Score Visual -->
+                <div class="trust-score-visual">
+                    <div class="score-header">
+                        <span class="score-title">Trust Score</span>
+                        <span class="score-range">33 → 465 <span class="score-improvement">(+432 pts)</span></span>
+                    </div>
+
+                    <div class="score-bar-container">
+                        <div class="score-zones">
+                            <span class="zone zone-poor">POOR</span>
+                            <span class="zone zone-fair">FAIR</span>
+                            <span class="zone zone-good">GOOD</span>
+                            <span class="zone zone-excellent">EXCELLENT</span>
+                        </div>
+
+                        <div class="score-bar-track">
+                            <div class="score-bar-fill" data-score-before="33" data-score-after="465">
+                                <div class="score-marker score-before" style="left: 3.9%">
+                                    <span class="score-label">33</span>
+                                </div>
+                                <div class="score-progress" style="width: 54.7%">
+                                    <svg class="progress-arrow" width="20" height="20" viewBox="0 0 20 20" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%);">
+                                        <path d="M5 10 L15 10 M11 6 L15 10 L11 14" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="score-marker score-after" style="left: 54.7%">
+                                    <span class="score-label">465</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="score-meta">
+                        <span class="meta-stat"><strong>16 files</strong> • <strong>456 columns</strong> • <strong>10 seconds</strong></span>
+                    </div>
                 </div>
+
+                <p class="score-caption">Real output from production analysis</p>
             </div>
         </div>
     </section>
