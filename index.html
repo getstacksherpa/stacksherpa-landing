@@ -723,14 +723,11 @@
                         const beforeTarget = parseInt(scoreBeforeEl.dataset.target);
                         const afterTarget = parseInt(scoreAfterEl.dataset.target);
 
-                        // Start from 0 and count up
+                        // Start from 0 and count up - both start at same time
                         setTimeout(() => {
                             animateCounter(scoreBeforeEl, 0, beforeTarget, 1000);
+                            animateCounter(scoreAfterEl, 0, afterTarget, 1500); // 50% longer duration
                         }, 300);
-
-                        setTimeout(() => {
-                            animateCounter(scoreAfterEl, beforeTarget, afterTarget, 1500);
-                        }, 1300);
                     }
 
                     // Only animate once
