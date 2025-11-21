@@ -274,7 +274,7 @@
            HERO SECTION
            ========================================== */
         #hero {
-            min-height: 90vh;
+            min-height: 81vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -929,7 +929,7 @@
            ========================================== */
         #solution {
             padding: 40px 0;
-            padding-top: 40px;
+            padding-top: 48px;
         }
 
         #solution .section-headline {
