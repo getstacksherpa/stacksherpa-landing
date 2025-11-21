@@ -1200,38 +1200,114 @@
             font-weight: 500;
         }
 
-        /* Product Demo Section (NEW) */
+        /* ==========================================
+           PRODUCT DEMO SECTION
+           ========================================== */
         #product-demo {
             padding: var(--space-2xl) 0;
             background: rgba(0, 0, 0, 0.02);
         }
 
-        .demo-screenshot {
-            margin-top: 48px;
+        /* Demo Hero (GIF Section) */
+        .demo-hero {
             text-align: center;
+            margin-bottom: 80px;
         }
 
-        .demo-screenshot:first-of-type {
-            margin-top: 48px;
+        .demo-gif-container {
+            max-width: 900px;
+            margin: 48px auto 24px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
-        .demo-screenshot + .demo-screenshot {
-            margin-top: 64px;
+        .demo-gif {
+            width: 100%;
+            display: block;
+        }
+
+        .demo-caption {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            font-style: italic;
+        }
+
+        /* Demo Details (Static Images) */
+        .demo-details {
+            margin-top: 80px;
+        }
+
+        .demo-section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 64px;
+            color: var(--text-primary);
+        }
+
+        .demo-screenshot {
+            margin: 64px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .demo-screenshot:nth-child(even) {
+            direction: rtl; /* Flip layout for alternating */
+        }
+
+        .demo-screenshot:nth-child(even) .screenshot-caption {
+            direction: ltr; /* Reset text direction */
         }
 
         .demo-image {
             width: 100%;
-            max-width: 900px;
             border-radius: 12px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .demo-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+            cursor: zoom-in;
         }
 
         .screenshot-caption {
-            margin-top: 16px;
+            text-align: left;
+        }
+
+        .screenshot-caption strong {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .screenshot-caption p {
+            font-size: 1rem;
+            line-height: 1.7;
             color: var(--text-gray);
+        }
+
+        /* Demo CTA */
+        .demo-cta {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 64px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .cta-subtext {
+            margin-top: 16px;
             font-size: 0.95rem;
-            font-style: italic;
+            color: var(--text-gray);
         }
 
         /* ==========================================
@@ -2502,6 +2578,43 @@
                 margin-top: 16px;
                 background: rgba(59, 130, 246, 0.1);
                 border-radius: 8px;
+            }
+
+            /* Product Demo - Mobile */
+            .demo-screenshot {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                margin: 48px 0;
+            }
+
+            .demo-screenshot:nth-child(even) {
+                direction: ltr; /* Reset alternating layout on mobile */
+            }
+
+            .demo-section-title {
+                font-size: 1.75rem;
+                margin-bottom: 48px;
+            }
+
+            .screenshot-caption strong {
+                font-size: 1.2rem;
+            }
+
+            .demo-hero {
+                margin-bottom: 60px;
+            }
+
+            .demo-gif-container {
+                margin: 32px auto 16px;
+            }
+
+            .demo-details {
+                margin-top: 60px;
+            }
+
+            .demo-cta {
+                margin-top: 60px;
+                padding-top: 48px;
             }
 
             .example-code {
