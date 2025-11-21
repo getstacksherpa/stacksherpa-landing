@@ -1283,6 +1283,66 @@
             featureObserver.observe(featuresGrid);
         }
 
+        // ==========================================
+        // IMAGE LIGHTBOX
+        // ==========================================
+
+        // Create lightbox HTML
+        const lightboxHTML = `
+            <div id="lightbox" class="lightbox">
+                <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+                <div class="lightbox-content">
+                    <img src="" alt="" class="lightbox-image">
+                </div>
+            </div>
+        `;
+
+        // Insert lightbox into DOM
+        document.body.insertAdjacentHTML('beforeend', lightboxHTML);
+
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox.querySelector('.lightbox-image');
+        const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+        // Function to open lightbox
+        function openLightbox(imageSrc, imageAlt) {
+            lightboxImg.src = imageSrc;
+            lightboxImg.alt = imageAlt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent body scroll
+        }
+
+        // Function to close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = ''; // Restore body scroll
+        }
+
+        // Add click listeners to all demo images
+        document.querySelectorAll('.demo-image').forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', () => {
+                openLightbox(img.src, img.alt);
+            });
+        });
+
+        // Close lightbox on close button click
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        // Close lightbox on backdrop click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
     </script>
 </body>
 </html>
