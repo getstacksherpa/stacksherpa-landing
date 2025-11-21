@@ -65,15 +65,17 @@
                 </h1>
 
                 <p class="hero-subheadline">
-                    Get a Trust Score (0-850) for every dbt model. See what's missing in 10 seconds.
+                    See where you stand in 10 seconds.
                 </p>
 
                 <!-- Trust Score Visual -->
                 <div class="trust-score-visual">
                     <div class="score-transformation">
-                        <span class="score-before">33</span>
-                        <span class="score-arrow">→</span>
-                        <span class="score-after">465</span>
+                        <div class="score-numbers">
+                            <span class="score-before">33</span>
+                            <span class="score-arrow">→</span>
+                            <span class="score-after">465</span>
+                        </div>
                         <span class="score-badge">+432 pts</span>
                     </div>
 
@@ -84,18 +86,11 @@
                         <div class="segment segment-excellent"></div>
                     </div>
 
-                    <div class="score-zones">
-                        <span class="zone zone-poor">POOR</span>
-                        <span class="zone zone-fair">FAIR</span>
-                        <span class="zone zone-good">GOOD</span>
-                        <span class="zone zone-excellent">EXCELLENT</span>
-                    </div>
-
                     <p class="score-meta">16 files · 456 columns · 10 seconds</p>
                 </div>
 
                 <div class="hero-cta">
-                    <a href="#waitlist" class="btn-primary">Analyze My dbt Project</a>
+                    <a href="#waitlist" class="btn-primary">Start Your Free Analysis</a>
                     <p class="hero-small-text">Free · No signup required</p>
                 </div>
             </div>
@@ -146,60 +141,98 @@
     <span id="features"></span>
     <section id="solution">
         <div class="container">
-            <h2 class="section-headline animate-on-scroll">Built for Data Engineering Workflows</h2>
+            <h2 class="section-headline animate-on-scroll">Pattern-Based Intelligence, Not AI Guesswork</h2>
 
-            <div class="solution-container">
-                <!-- Left: Screenshot -->
-                <div class="solution-screenshot">
-                    <img src="Assets/github-pr-screenshot.png" alt="StackSherpa GitHub PR Review showing performance warning for CROSS JOIN" class="solution-screenshot-image">
-                </div>
+            <div class="features-intro">
+                <p class="intro-text intro-question">
+                    Stuck at &lt;20% test coverage? You're not alone.
+                </p>
+                <p class="intro-text">
+                    Most dbt teams know they should test more—they just don't know where to start.
+                    We show you exactly what to add, and explain <em><u>why</u></em> it matters.
+                </p>
+            </div>
 
-                <!-- Right: Features -->
-                <div class="features-list">
-                    <!-- Feature 1 -->
-                    <div class="feature-item">
-                        <span class="feature-icon">🔍</span>
-                        <div class="feature-content">
-                            <h3 class="feature-headline">Schema Change Detection</h3>
-                            <p class="feature-description">
-                                Detects when column changes will break downstream models. Sees the full dependency chain in seconds.
-                            </p>
-                        </div>
-                    </div>
+            <p class="section-subheadline">Built on 42,351 real dbt columns. Not AI guesses—actual patterns from real teams.</p>
 
-                    <!-- Feature 2 -->
-                    <div class="feature-item">
-                        <span class="feature-icon">🛡️</span>
-                        <div class="feature-content">
-                            <h3 class="feature-headline">Smart Test Suggestions</h3>
-                            <p class="feature-description">
-                                AI suggests dbt tests based on column semantics. Explains why each test prevents production incidents.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 3 -->
-                    <div class="feature-item">
-                        <span class="feature-icon">⚡</span>
-                        <div class="feature-content">
-                            <h3 class="feature-headline">SQL Performance Analysis</h3>
-                            <p class="feature-description">
-                                Catches expensive queries before they hit your warehouse. Estimates costs and suggests optimizations.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 4 -->
-                    <div class="feature-item">
-                        <span class="feature-icon">🎯</span>
-                        <div class="feature-content">
-                            <h3 class="feature-headline">dbt-Native Understanding</h3>
-                            <p class="feature-description">
-                                Parses {{ ref() }}, {{ source() }}, and schema.yml. Understands incremental models and Jinja macros.
-                            </p>
+            <div class="features-grid">
+                <!-- Card 1: Real dbt Patterns -->
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-number" data-target="13186">13,186</div>
+                    <h3>Patterns from Real Teams</h3>
+                    <p>
+                        We studied 5,000+ dbt projects to learn what works. No surprises.
+                    </p>
+                    <div class="feature-hover-content">
+                        <div class="example-code">
+                            <strong>Here's how:</strong><br>
+                            We've seen <code>total_revenue</code> in 127 projects.<br>
+                            89% of teams add <code>>= 0</code> validation. You get the same recommendation they trust.
                         </div>
                     </div>
                 </div>
+
+                <!-- Card 2: Instant PR Comments -->
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <div class="feature-number" data-target="10">10</div>
+                    <h3>See Your Score Instantly <span class="feature-unit">sec</span></h3>
+                    <p>
+                        Open a PR. Get your Trust Score in 10 seconds. Zero setup. Zero config.
+                    </p>
+                    <div class="feature-hover-content">
+                        <div class="example-code">
+                            <strong>What happens:</strong><br>
+                            Your score goes from 33 → 465.<br>
+                            We analyze 16 files, 456 columns while you grab coffee.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Quick Wins -->
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <div class="feature-number" data-target="5">5</div>
+                    <h3>Ship Your First Test <span class="feature-unit">min</span></h3>
+                    <p>
+                        Copy. Paste. Commit. Your first test is live in 5 minutes.
+                    </p>
+                    <div class="feature-hover-content">
+                        <div class="example-code">
+                            <strong>What you'll add:</strong><br>
+                            Primary keys? Add <code>unique + not_null</code><br>
+                            Foreign keys? Add <code>relationships</code> test<br>
+                            We tell you exactly what—and why.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         PRODUCT DEMO SECTION
+         ========================================== -->
+    <section id="product-demo">
+        <div class="container">
+            <h2 class="section-headline animate-on-scroll">See It In Action</h2>
+            <p class="section-subheadline">Real PR comment from StackSherpa analyzing a dbt project</p>
+
+            <!-- Screenshot 1: Full PR Comment -->
+            <div class="demo-screenshot">
+                <img src="Assets/pr-comment-full.png"
+                     alt="StackSherpa PR comment showing Trust Score, What's Working, and Quick Wins"
+                     class="demo-image">
+                <p class="screenshot-caption">Complete analysis with Trust Score, validation of existing work, and actionable recommendations</p>
+            </div>
+
+            <!-- Screenshot 2: Detailed Recommendations -->
+            <div class="demo-screenshot">
+                <img src="Assets/pr-comment-details.png"
+                     alt="Tier-based recommendations with copy-paste YAML organized by data quality framework"
+                     class="demo-image">
+                <p class="screenshot-caption">Copy-paste YAML organized by tier and framework—based on 13,186 production column patterns</p>
             </div>
         </div>
     </section>
@@ -1164,6 +1197,46 @@
 
         // Start auto-advance on page load
         startAutoAdvance();
+        // ==========================================
+        // Feature Number Count-Up Animation
+        // ==========================================
+        function animateCountUp(element, start, end, duration) {
+            let startTime = null;
+            const step = (timestamp) => {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value.toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Intersection Observer for feature cards
+        const featureObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numberElements = entry.target.querySelectorAll('.feature-number[data-target]');
+                    numberElements.forEach(el => {
+                        if (el.dataset.animated !== 'true') {
+                            const target = parseInt(el.dataset.target);
+                            animateCountUp(el, 0, target, 1500);
+                            el.dataset.animated = 'true';
+                        }
+                    });
+                    featureObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        // Observe features grid
+        const featuresGrid = document.querySelector('.features-grid');
+        if (featuresGrid) {
+            featureObserver.observe(featuresGrid);
+        }
+
     </script>
 </body>
 </html>
