@@ -65,55 +65,39 @@
                 </h1>
 
                 <p class="hero-subheadline">
-                    Every dbt model gets a Trust Score (0-850). See exactly where you stand, what's missing, and how to reach 750+ through guided improvements.
-                </p>
-
-                <div class="hero-cta">
-                    <a href="#waitlist" class="btn-primary">See My Score</a>
-                </div>
-
-                <p class="hero-small-text">
-                    10-second analysis · No signup required
+                    Get a Trust Score (0-850) for every dbt model. See what's missing in 10 seconds.
                 </p>
 
                 <!-- Trust Score Visual -->
                 <div class="trust-score-visual">
-                    <div class="score-header">
-                        <span class="score-title">Trust Score</span>
-                        <span class="score-range">33 → 465 <span class="score-improvement">(+432 pts)</span></span>
+                    <div class="score-transformation">
+                        <span class="score-before">33</span>
+                        <span class="score-arrow">→</span>
+                        <span class="score-after">465</span>
+                        <span class="score-badge">+432 pts</span>
                     </div>
 
-                    <div class="score-bar-container">
-                        <div class="score-zones">
-                            <span class="zone zone-poor">POOR</span>
-                            <span class="zone zone-fair">FAIR</span>
-                            <span class="zone zone-good">GOOD</span>
-                            <span class="zone zone-excellent">EXCELLENT</span>
-                        </div>
-
-                        <div class="segmented-bar">
-                            <div class="segment segment-poor"></div>
-                            <div class="segment segment-fair"></div>
-                            <div class="segment segment-good active"></div>
-                            <div class="segment segment-excellent"></div>
-                        </div>
-
-                        <div class="score-markers">
-                            <div class="score-marker score-before" style="left: 3.9%">
-                                <span class="score-label">33</span>
-                            </div>
-                            <div class="score-marker score-after" style="left: 54.7%">
-                                <span class="score-label">465</span>
-                            </div>
-                        </div>
+                    <div class="segmented-bar">
+                        <div class="segment segment-poor"></div>
+                        <div class="segment segment-fair"></div>
+                        <div class="segment segment-good active"></div>
+                        <div class="segment segment-excellent"></div>
                     </div>
 
-                    <div class="score-meta">
-                        <span class="meta-stat"><strong>16 files</strong> • <strong>456 columns</strong> • <strong>10 seconds</strong></span>
+                    <div class="score-zones">
+                        <span class="zone zone-poor">POOR</span>
+                        <span class="zone zone-fair">FAIR</span>
+                        <span class="zone zone-good">GOOD</span>
+                        <span class="zone zone-excellent">EXCELLENT</span>
                     </div>
+
+                    <p class="score-meta">16 files · 456 columns · 10 seconds</p>
                 </div>
 
-                <p class="score-caption">Real output from production analysis</p>
+                <div class="hero-cta">
+                    <a href="#waitlist" class="btn-primary">Analyze My dbt Project</a>
+                    <p class="hero-small-text">Free · No signup required</p>
+                </div>
             </div>
         </div>
     </section>
@@ -663,6 +647,67 @@
                 menuToggle.setAttribute('aria-expanded', 'false');
             });
         });
+
+        // Animated counter for Trust Score numbers
+        function animateCounter(element, start, end, duration) {
+            const startTime = performance.now();
+            const range = end - start;
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing function (ease-out cubic)
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(start + (range * easeOut));
+
+                element.textContent = current;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Trigger counter animation when visible
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const scoreBeforeEl = document.querySelector('.score-before-num');
+                    const scoreAfterEl = document.querySelector('.score-after-num');
+
+                    if (scoreBeforeEl && scoreAfterEl) {
+                        const beforeTarget = parseInt(scoreBeforeEl.dataset.target);
+                        const afterTarget = parseInt(scoreAfterEl.dataset.target);
+
+                        // Start from 0 and count up
+                        setTimeout(() => {
+                            animateCounter(scoreBeforeEl, 0, beforeTarget, 1000);
+                        }, 300);
+
+                        setTimeout(() => {
+                            animateCounter(scoreAfterEl, beforeTarget, afterTarget, 1500);
+                        }, 1300);
+                    }
+
+                    // Only animate once
+                    observer.disconnect();
+                }
+            });
+        }, observerOptions);
+
+        // Start observing the trust score visual
+        const trustScoreVisual = document.querySelector('.trust-score-visual');
+        if (trustScoreVisual) {
+            observer.observe(trustScoreVisual);
+        }
 
         // Smooth scroll enhancement (optional, since CSS handles it)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
