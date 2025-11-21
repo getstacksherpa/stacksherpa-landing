@@ -1455,6 +1455,23 @@
             line-height: 1.5;
         }
 
+        /* How It Works CTA */
+        .how-it-works-cta {
+            text-align: center;
+            margin-top: 64px;
+            padding-top: 64px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .how-it-works-cta .btn-primary {
+            margin-bottom: 16px;
+        }
+
+        .how-it-works-cta .cta-subtext {
+            font-size: 1rem;
+            color: var(--text-gray);
+        }
+
         /* ==========================================
            PRICING SECTION
            ========================================== */
