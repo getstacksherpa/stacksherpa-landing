@@ -400,88 +400,6 @@
         </div>
     </section>
 
-    <!-- ==========================================
-         SOCIAL PROOF SECTION
-         ========================================== -->
-    <section id="social-proof">
-        <div class="container">
-            <h2 class="section-headline animate-on-scroll">Production Incidents StackSherpa Prevents</h2>
-            <p class="section-subheadline">Real incidents from data teams (2024-2025)</p>
-
-            <!-- Incident Carousel -->
-            <div class="carousel-container">
-                <div class="carousel-wrapper">
-                    <div class="carousel-track" id="carouselTrack">
-                        <!-- Slide 1: The $523 CROSS JOIN Mistake -->
-                        <article class="carousel-slide active">
-                            <div class="carousel-icon">🔥</div>
-                            <h3 class="carousel-title">The $523 CROSS JOIN Mistake</h3>
-                            <div class="carousel-description">
-                                <p>Missing <code>ON</code> clause in join query. Users table (2M rows) × Events table (500M rows) = 1 trillion intermediate rows. Query ran for over an hour on large Snowflake warehouse.</p>
-                            </div>
-                            <div class="carousel-impact">
-                                <strong>Impact:</strong> Quarterly budget blown on one query, CTO escalation
-                            </div>
-                            <p class="carousel-source">Source: r/dataengineering, March 2024</p>
-                            <a href="#solution" class="carousel-cta">How StackSherpa Prevents This →</a>
-                        </article>
-
-                        <!-- Slide 2: The Column Rename That Broke Finance -->
-                        <article class="carousel-slide">
-                            <div class="carousel-icon">⚠️</div>
-                            <h3 class="carousel-title">The Column Rename That Broke Finance</h3>
-                            <div class="carousel-description">
-                                <p>Column renamed from <code>user_id</code> to <code>customer_id</code>. PR approved with "LGTM". Three downstream models broke silently. Wrong revenue numbers shown to board for 2 weeks.</p>
-                            </div>
-                            <div class="carousel-impact">
-                                <strong>Impact:</strong> $50K in bad decisions, emergency weekend fix
-                            </div>
-                            <p class="carousel-source">Source: dbt Community Slack, May 2024</p>
-                            <a href="#solution" class="carousel-cta">How StackSherpa Prevents This →</a>
-                        </article>
-
-                        <!-- Slide 3: The Incremental Model That Duplicated Everything -->
-                        <article class="carousel-slide">
-                            <div class="carousel-icon">⚠️</div>
-                            <h3 class="carousel-title">The Incremental Model That Duplicated Everything</h3>
-                            <div class="carousel-description">
-                                <p>Incremental model used <code>&gt;=</code> instead of <code>&gt;</code>. Re-processed previous day on every run. Duplicates accumulated for 3 months. All Q2 KPIs incorrect.</p>
-                            </div>
-                            <div class="carousel-impact">
-                                <strong>Impact:</strong> Lost customer trust, full data reconciliation required
-                            </div>
-                            <p class="carousel-source">Source: dbt Discourse, August 2024</p>
-                            <a href="#solution" class="carousel-cta">How StackSherpa Prevents This →</a>
-                        </article>
-                    </div>
-
-                    <!-- Navigation Arrows -->
-                    <button class="carousel-arrow carousel-arrow-prev" id="prevBtn" aria-label="Previous slide">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
-                    </button>
-                    <button class="carousel-arrow carousel-arrow-next" id="nextBtn" aria-label="Next slide">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </button>
-                </div>
-
-                <!-- Dot Indicators -->
-                <div class="carousel-dots" id="carouselDots">
-                    <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
-                    <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
-                    <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
-                </div>
-            </div>
-
-            <!-- Footer Disclaimer -->
-            <p class="incidents-disclaimer">
-                Stories based on documented incidents from dbt Community forums, r/dataengineering, and data engineer interviews. Details anonymized.
-            </p>
-        </div>
-    </section>
 
     <!-- ==========================================
          CTA SECTION
@@ -563,6 +481,19 @@
                     <!-- FAQ 5 -->
                     <div class="faq-item">
                         <button class="faq-question">
+                            <span>Won't adding more tests slow down my CI/CD pipeline?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Actually, StackSherpa makes your pipeline <strong>faster and more cost-efficient</strong>. We're selective by design—contracts catch schema issues at compile-time (free), and tests only run where data quality needs runtime validation.</p>
+                            <p>Critical customer-facing models get thorough testing. Staging tables get essentials only. Every test recommendation is ranked by impact, so you spend compute credits on what matters, not validation theater.</p>
+                            <p>The result? Faster CI runs, lower warehouse costs, and testing budget directed at business-critical marts instead of staging bloat.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
                             <span>Is my code secure? Do you store it?</span>
                             <span class="faq-icon">+</span>
                         </button>
@@ -571,7 +502,7 @@
                         </div>
                     </div>
 
-                    <!-- FAQ 6 -->
+                    <!-- FAQ 7 -->
                     <div class="faq-item">
                         <button class="faq-question">
                             <span>Can I cancel anytime?</span>
