@@ -72,9 +72,9 @@
                 <div class="trust-score-visual">
                     <div class="score-transformation">
                         <div class="score-numbers">
-                            <span class="score-before">33</span>
+                            <span class="score-before"><span class="score-before-num" data-target="33">33</span></span>
                             <span class="score-arrow">→</span>
-                            <span class="score-after">465</span>
+                            <span class="score-after"><span class="score-after-num" data-target="465">465</span></span>
                         </div>
                         <span class="score-badge">+432 pts</span>
                     </div>
@@ -142,7 +142,7 @@
     <section id="solution">
         <div class="container">
             <h2 class="section-headline animate-on-scroll">Why Teams Trust StackSherpa</h2>
-            <p class="section-subheadline" style="margin-top: -60px; margin-bottom: 20px; font-size: 1.2rem; color: var(--text-gray);">
+            <p class="section-subheadline" style="margin-top: 8px; margin-bottom: 32px; font-size: 1.15rem; color: var(--text-gray); font-weight: 400;">
                 Pattern-Based Intelligence, Not AI Guesswork
             </p>
 
@@ -151,12 +151,12 @@
                     Stuck at &lt;20% test coverage? You're not alone.
                 </p>
                 <p class="intro-text">
-                    Most dbt teams know they should test more—they just don't know where to start.
+                    Most dbt teams know they should test more but just don't know where to start.
                     We show you exactly what to add, and explain <em><u>why</u></em> it matters.
                 </p>
             </div>
 
-            <p class="section-subheadline">Built on 42,351 real dbt columns. Not AI guesses—actual patterns from real teams.</p>
+            <p class="section-subheadline">Built on 42,351 real dbt columns. Not AI guesses, actual patterns from real teams.</p>
 
             <div class="features-grid">
                 <!-- Card 1: Real dbt Patterns -->
@@ -708,12 +708,12 @@
         }
 
         // Trigger counter animation when visible
-        const observerOptions = {
+        const counterObserverOptions = {
             threshold: 0.5,
             rootMargin: '0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const scoreBeforeEl = document.querySelector('.score-before-num');
@@ -734,15 +734,15 @@
                     }
 
                     // Only animate once
-                    observer.disconnect();
+                    counterObserver.disconnect();
                 }
             });
-        }, observerOptions);
+        }, counterObserverOptions);
 
         // Start observing the trust score visual
         const trustScoreVisual = document.querySelector('.trust-score-visual');
         if (trustScoreVisual) {
-            observer.observe(trustScoreVisual);
+            counterObserver.observe(trustScoreVisual);
         }
 
         // Smooth scroll enhancement (optional, since CSS handles it)
@@ -905,7 +905,7 @@
         // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'  // Reduced from -100px to trigger earlier
         };
 
         const observer = new IntersectionObserver((entries) => {
