@@ -1028,14 +1028,16 @@
         const nextBtn = document.getElementById('nextBtn');
         const carouselWrapper = document.querySelector('.carousel-wrapper');
 
-        let currentSlide = 0;
-        let autoAdvanceInterval;
-        let touchStartX = 0;
-        let touchEndX = 0;
-        let userInteracted = false;
+        // Only run carousel code if carousel elements exist
+        if (carouselWrapper && carouselTrack && prevBtn && nextBtn && slides.length > 0) {
+            let currentSlide = 0;
+            let autoAdvanceInterval;
+            let touchStartX = 0;
+            let touchEndX = 0;
+            let userInteracted = false;
 
-        // Update carousel position
-        function updateCarousel(slideIndex) {
+            // Update carousel position
+            function updateCarousel(slideIndex) {
             // Update slides
             slides.forEach((slide, index) => {
                 slide.classList.remove('active');
@@ -1147,8 +1149,10 @@
             }
         });
 
-        // Start auto-advance on page load
-        startAutoAdvance();
+            // Start auto-advance on page load
+            startAutoAdvance();
+        } // End carousel functionality check
+
         // ==========================================
         // Feature Number Count-Up Animation
         // ==========================================
@@ -1212,10 +1216,12 @@
 
         // Function to open lightbox
         function openLightbox(imageSrc, imageAlt) {
+            console.log('Opening lightbox for:', imageSrc);
             lightboxImg.src = imageSrc;
             lightboxImg.alt = imageAlt;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent body scroll
+            console.log('Lightbox opened, active class added');
         }
 
         // Function to close lightbox
@@ -1225,9 +1231,13 @@
         }
 
         // Add click listeners to all demo images
-        document.querySelectorAll('.demo-image').forEach(img => {
+        const demoImages = document.querySelectorAll('.demo-image');
+        console.log('Found', demoImages.length, 'demo images for lightbox');
+
+        demoImages.forEach(img => {
             img.style.cursor = 'zoom-in';
             img.addEventListener('click', () => {
+                console.log('Image clicked:', img.src);
                 openLightbox(img.src, img.alt);
             });
         });
