@@ -7,8 +7,7 @@
     <title>StackSherpa - Trust Score for dbt Projects | Pattern-Based Testing</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="alternate icon" type="image/svg+xml" href="Assets/StackSherpa-Brand/05-favicon/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="Assets/StackSherpa-Brand/05-favicon/favicon.svg">
 
     <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -823,13 +822,6 @@
             const company = document.getElementById('company').value.trim();
             const teamSize = document.getElementById('teamSize').value;
 
-            console.log('Form submitted!');
-            console.log('Name:', fullName);
-            console.log('Email:', email);
-            console.log('Company:', company);
-            console.log('Team Size:', teamSize);
-            console.log('Script URL:', GOOGLE_SCRIPT_URL);
-
             // Email validation regex
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -868,8 +860,6 @@
                 timestamp: new Date().toISOString()
             };
 
-            console.log('Sending payload:', payload);
-
             try {
                 const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
@@ -879,8 +869,6 @@
                     },
                     body: JSON.stringify(payload)
                 });
-
-                console.log('Request sent successfully (no-cors mode)');
 
                 // Show success message
                 waitlistForm.style.display = 'none';
@@ -984,7 +972,6 @@
                     });
                 }
             } catch (error) {
-                console.log('Currency detection skipped:', error);
                 // Default to £ if detection fails
             }
         }
@@ -1056,13 +1043,8 @@
                             teamOldPrice.style.display = 'none';
                         }
                     }
-
-                    console.log(`Updated remaining spots: ${spotsRemaining}`);
-                } else {
-                    console.log('Could not fetch spot count, using default value');
                 }
             } catch (error) {
-                console.log('Error fetching remaining spots:', error);
                 // Keep the hardcoded values if fetch fails
             }
         }
@@ -1268,12 +1250,10 @@
 
         // Function to open lightbox
         function openLightbox(imageSrc, imageAlt) {
-            console.log('Opening lightbox for:', imageSrc);
             lightboxImg.src = imageSrc;
             lightboxImg.alt = imageAlt;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent body scroll
-            console.log('Lightbox opened, active class added');
         }
 
         // Function to close lightbox
@@ -1284,12 +1264,10 @@
 
         // Add click listeners to all demo images
         const demoImages = document.querySelectorAll('.demo-image');
-        console.log('Found', demoImages.length, 'demo images for lightbox');
 
         demoImages.forEach(img => {
             img.style.cursor = 'zoom-in';
             img.addEventListener('click', () => {
-                console.log('Image clicked:', img.src);
                 openLightbox(img.src, img.alt);
             });
         });
