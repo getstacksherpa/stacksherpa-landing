@@ -424,15 +424,27 @@
                     <!-- FAQ 2 -->
                     <div class="faq-item">
                         <button class="faq-question">
-                            <span>Do I need to be a dbt expert to use StackSherpa?</span>
+                            <span>How is StackSherpa's analysis deterministic?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>No! StackSherpa is actually great for learning. Our AI comments explain WHY things matter and teach best practices. Many users tell us it's helped their junior engineers level up. If you use dbt, StackSherpa will help you write better models.</p>
+                            <p>We analyzed 5,000+ production dbt repos to build a pattern library. When you write <code>customer_id</code>, we know 94% of teams enforce <code>not_null + unique</code> because we've seen that pattern 1,247 times.</p>
+                            <p>We use pattern matching and semantic analysis—not LLMs that guess. Run the analysis twice? You'll get the exact same recommendations. That's how testing tools should work.</p>
                         </div>
                     </div>
 
                     <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do I need to be a dbt expert to use StackSherpa?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No! StackSherpa is actually great for learning. Our recommendations explain WHY things matter and teach best practices. Many users tell us it's helped their junior engineers level up. If you use dbt, StackSherpa will help you write better models.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
                     <div class="faq-item">
                         <button class="faq-question">
                             <span>What data warehouses do you support?</span>
@@ -443,18 +455,18 @@
                         </div>
                     </div>
 
-                    <!-- FAQ 4 -->
+                    <!-- FAQ 5 -->
                     <div class="faq-item">
                         <button class="faq-question">
-                            <span>How long does a review take?</span>
+                            <span>How long does analysis take?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Most PRs are reviewed in under 10 seconds. Complex PRs with many changed files might take 20-30 seconds. You'll see a 'Review in progress' status check in GitHub, then inline comments appear on your PR automatically.</p>
+                            <p>Most PRs are analyzed in under 10 seconds. Complex PRs with many changed files might take 20-30 seconds. You'll see results posted as a PR comment automatically.</p>
                         </div>
                     </div>
 
-                    <!-- FAQ 5 -->
+                    <!-- FAQ 6 -->
                     <div class="faq-item">
                         <button class="faq-question">
                             <span>Won't adding more tests slow down my CI/CD pipeline?</span>
@@ -467,18 +479,18 @@
                         </div>
                     </div>
 
-                    <!-- FAQ 6 -->
+                    <!-- FAQ 7 -->
                     <div class="faq-item">
                         <button class="faq-question">
                             <span>Is my code secure? Do you store it?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>We clone your code temporarily to analyze it, then delete it immediately after the review. We never store your dbt models or SQL. We only keep metadata (file names, line numbers) to post comments. Your code stays in your GitHub repo.</p>
+                            <p>We clone your code temporarily to analyze it, then delete it immediately after analysis. We never store your dbt models or SQL. We only keep metadata (file names, line numbers) to post comments. Your code stays in your GitHub repo.</p>
                         </div>
                     </div>
 
-                    <!-- FAQ 7 -->
+                    <!-- FAQ 8 -->
                     <div class="faq-item">
                         <button class="faq-question">
                             <span>Can I cancel anytime?</span>
