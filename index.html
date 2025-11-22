@@ -33,14 +33,13 @@
             </a>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="#features">Features</a></li>
+                <li><a href="#solution">Features</a></li>
                 <li><a href="#faq">FAQ</a></li>
-                <li><a href="#waitlist">Waitlist</a></li>
+                <li><a href="#how-it-works">Get Started</a></li>
             </ul>
 
             <div class="nav-buttons">
-                <a href="#" class="nav-btn-secondary">Coming Soon</a>
-                <a href="#waitlist" class="nav-btn-primary">Join the waitlist →</a>
+                <a href="https://github.com/apps/stacksherpa-dev" class="nav-btn-primary" target="_blank" rel="noopener noreferrer">Install App →</a>
             </div>
 
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -60,7 +59,7 @@
             <!-- Hero Content -->
             <div class="hero-content">
                 <h1 class="hero-headline">
-                    Know Your <span class="gradient-text">Data Quality Score</span>
+                    Know Your <span class="dbt-badge">dbt<img src="Assets/dbt-logo.png" alt="dbt" class="dbt-logo-overlay"></span> <span class="gradient-text">Data Quality Score</span>
                 </h1>
 
                 <p class="hero-subheadline">
@@ -89,8 +88,8 @@
                 </div>
 
                 <div class="hero-cta">
-                    <a href="#waitlist" class="btn-primary">Start Your Free Analysis</a>
-                    <p class="hero-small-text">Free · No signup required</p>
+                    <a href="https://github.com/apps/stacksherpa-dev" class="btn-primary" target="_blank" rel="noopener noreferrer">Install GitHub App →</a>
+                    <p class="hero-small-text">Free 90-day beta · 60 second setup</p>
                 </div>
             </div>
         </div>
@@ -327,7 +326,7 @@
 
             <!-- CTA -->
             <div class="how-it-works-cta">
-                <a href="#waitlist" class="btn-primary btn-large">Get Your Trust Score</a>
+                <a href="https://github.com/apps/stacksherpa-dev" class="btn-primary btn-large" target="_blank" rel="noopener noreferrer">Install GitHub App →</a>
                 <p class="cta-subtext">Make testing part of how your team ships</p>
             </div>
         </div>
@@ -413,22 +412,11 @@
                     <!-- FAQ 1 -->
                     <div class="faq-item">
                         <button class="faq-question">
-                            <span>How is StackSherpa different from CodeRabbit or other AI code review tools?</span>
+                            <span>Why is StackSherpa's analysis deterministic (not AI)?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>CodeRabbit and similar tools are general-purpose - they treat SQL like any other code. StackSherpa is built specifically for dbt and understands data engineering semantics. We parse {{ ref() }} and {{ source() }}, understand schema.yml files, analyze downstream dependencies, and explain business impact of changes. We're specialists, not generalists.</p>
-                        </div>
-                    </div>
-
-                    <!-- FAQ 2 -->
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>How is StackSherpa's analysis deterministic?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>We analyzed 5,000+ production dbt repos to build a pattern library. When you write <code>customer_id</code>, we know 94% of teams enforce <code>not_null + unique</code> because we've seen that pattern 1,247 times.</p>
+                            <p>We analyzed 184 production dbt repos (8,355 models, 13,186 unique column names) to build a pattern library. When you write <code>block_timestamp</code>, we know it appears in 611 repos. When you write <code>id</code>, we've seen that pattern 279 times across real projects.</p>
                             <p>We use pattern matching and semantic analysis—not LLMs that guess. Run the analysis twice? You'll get the exact same recommendations. That's how testing tools should work.</p>
                         </div>
                     </div>
@@ -493,11 +481,12 @@
                     <!-- FAQ 8 -->
                     <div class="faq-item">
                         <button class="faq-question">
-                            <span>Can I cancel anytime?</span>
+                            <span>How much does it cost?</span>
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Yes, absolutely. No contracts, no commitments. Cancel from your account dashboard anytime. If you locked in founder pricing (£19/month), that rate is yours forever if you stay subscribed.</p>
+                            <p>StackSherpa is currently in a <strong>free 90-day beta period</strong>. We're focused on gathering feedback and testing product-market fit before finalizing pricing.</p>
+                            <p>Install the GitHub App today and help us shape the future of dbt testing. No credit card required.</p>
                         </div>
                     </div>
                 </div>
@@ -506,13 +495,13 @@
     </section>
 
     <!-- ==========================================
-         WAITLIST SECTION
+         GET STARTED SECTION (HIDDEN)
          ========================================== -->
-    <section id="waitlist">
+    <section id="get-started" style="display: none;">
         <div class="container">
             <div class="waitlist-content">
-                <h2 class="section-title animate-on-scroll">Join the Waitlist</h2>
-                <p class="section-subtitle">Be among the first to experience AI-powered dbt code review. No credit card required.</p>
+                <h2 class="section-title animate-on-scroll">Ready to Ship with Confidence?</h2>
+                <p class="section-subtitle">Join our 90-day free beta. Install the GitHub App and get your first Trust Score in 60 seconds.</p>
 
                 <form id="waitlistForm" class="waitlist-form">
                     <input
@@ -588,9 +577,8 @@
                     <h4>Product</h4>
                     <ul class="footer-links">
                         <li><a href="#solution">Features</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
                         <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#waitlist">Waitlist</a></li>
+                        <li><a href="https://github.com/apps/stacksherpa-dev" target="_blank" rel="noopener noreferrer">Install App</a></li>
                     </ul>
                 </div>
 
