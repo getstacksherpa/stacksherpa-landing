@@ -38,7 +38,7 @@
             </ul>
 
             <div class="nav-buttons">
-                <a href="https://github.com/apps/stacksherpa-dev" class="nav-btn-primary" target="_blank" rel="noopener noreferrer">Install App →</a>
+                <a href="https://github.com/apps/stacksherpa-dev" class="nav-btn-primary" target="_blank" rel="noopener noreferrer">Install GitHub App →</a>
             </div>
 
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -57,6 +57,9 @@
         <div class="container">
             <!-- Hero Content -->
             <div class="hero-content">
+                <p class="hero-intro" style="font-size: 1.1rem; color: var(--text-gray); margin-bottom: 16px; font-weight: 500;">
+                    Data engineers deserve better code review
+                </p>
                 <h1 class="hero-headline">
                     Know Your <span class="dbt-badge">dbt<img src="Assets/dbt-logo.png" alt="dbt" class="dbt-logo-overlay"></span> <span class="gradient-text">Data Quality Score</span>
                 </h1>
@@ -66,8 +69,8 @@
                 </p>
 
                 <!-- Trust Score Visual -->
-                <div class="trust-score-visual">
-                    <div class="score-transformation">
+                <div class="trust-score-visual" style="position: relative; cursor: help;" title="Trust Score evaluates your dbt project's data quality. Measures test coverage, schema contracts, and best practices.">
+                    <div class="score-transformation" style="position: relative;">
                         <div class="score-numbers">
                             <span class="score-before"><span class="score-before-num" data-target="33">0</span></span>
                             <span class="score-arrow">→</span>
@@ -141,8 +144,21 @@
             <h2 class="section-headline animate-on-scroll">Why Teams Trust StackSherpa</h2>
 
             <p class="section-subheadline" style="margin-top: 16px; margin-bottom: 32px; font-size: 1.15rem; color: var(--text-gray); font-weight: 400;">
-                Pattern-Based Intelligence, built on 13,186 real dbt columns from thousands of dbt repos. No AI Guesswork.
+                Built on 13,186 real dbt columns from thousands of production projects.
             </p>
+
+            <!-- Anti-AI Feature Banner -->
+            <div class="anti-ai-banner" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 2px solid #0ea5e9; border-radius: 16px; padding: 32px; margin-bottom: 48px; text-align: center;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap;">
+                    <div class="feature-icon" style="font-size: 48px;">🎯</div>
+                    <div style="flex: 1; min-width: 250px; text-align: left;">
+                        <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">Deterministic Patterns, Not AI Guessing</h3>
+                        <p style="font-size: 16px; color: var(--text-gray); line-height: 1.6; margin: 0;">
+                            Same code in = same recommendations out. No LLM hallucinations.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
             <div class="features-intro">
                 <p class="intro-text intro-question">
@@ -161,7 +177,7 @@
                     <div class="feature-number" data-target="13186">13,186</div>
                     <h3>Patterns from Real Teams</h3>
                     <p>
-                        We analyzed thousands of dbt repos (8,355 models) to learn what works. No surprises.
+                        We analyzed thousands of dbt repos (8,355 models) to learn what works.
                     </p>
                     <div class="feature-hover-content">
                         <div class="example-code">
@@ -1288,6 +1304,8 @@
                 closeLightbox();
             }
         });
+
+        // Trust Score Tooltip - Using native browser title attribute for simplicity
 
     </script>
 </body>
