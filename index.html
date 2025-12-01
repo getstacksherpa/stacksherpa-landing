@@ -19,6 +19,17 @@
     <!-- Vercel Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
 
+    <!-- PostHog Analytics -->
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_sczf9M5yZlqof2tlvbY19LTiUWGeDaExT5jcCAdEJOo', {
+            api_host: 'https://eu.i.posthog.com',
+            person_profiles: 'identified_only',
+            capture_pageview: true,
+            capture_pageleave: true
+        });
+    </script>
+
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
@@ -1309,6 +1320,53 @@
         });
 
         // Trust Score Tooltip - Using native browser title attribute for simplicity
+
+        // ==========================================
+        // POSTHOG EVENT TRACKING
+        // ==========================================
+
+        // Track all "Install GitHub App" button clicks
+        document.querySelectorAll('a[href*="github.com/apps/stacksherpa"]').forEach((link, index) => {
+            // Determine button location based on parent section
+            let location = 'unknown';
+            if (link.closest('nav')) location = 'navigation';
+            else if (link.closest('#hero')) location = 'hero';
+            else if (link.closest('#how-it-works')) location = 'how-it-works';
+            else if (link.closest('footer')) location = 'footer';
+
+            link.addEventListener('click', () => {
+                if (typeof posthog !== 'undefined') {
+                    posthog.capture('install_button_clicked', {
+                        button_location: location,
+                        button_text: link.textContent.trim(),
+                        referrer: document.referrer || 'direct'
+                    });
+                }
+            });
+        });
+
+        // Track scroll to key sections
+        const sectionsToTrack = ['problem', 'solution', 'ideal-for', 'product-demo', 'how-it-works', 'faq'];
+        const trackedSections = new Set();
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !trackedSections.has(entry.target.id)) {
+                    trackedSections.add(entry.target.id);
+                    if (typeof posthog !== 'undefined') {
+                        posthog.capture('section_viewed', {
+                            section: entry.target.id,
+                            scroll_depth: Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100)
+                        });
+                    }
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sectionsToTrack.forEach(sectionId => {
+            const section = document.getElementById(sectionId);
+            if (section) sectionObserver.observe(section);
+        });
 
     </script>
 </body>
