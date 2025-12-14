@@ -16,6 +16,57 @@
 
     <link rel="stylesheet" href="styles.css">
 
+    <!-- Archived Project Styles -->
+    <style>
+        .archived-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            text-align: center;
+            padding: 12px 20px;
+            z-index: 10000;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .archived-banner a {
+            color: white;
+            text-decoration: underline;
+        }
+        body {
+            padding-top: 48px; /* Space for fixed banner */
+        }
+        .archived-stamp {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            font-size: 8rem;
+            font-weight: 900;
+            color: rgba(220, 38, 38, 0.15);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            pointer-events: none;
+            z-index: 9999;
+            white-space: nowrap;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            text-shadow: 2px 2px 0 rgba(220, 38, 38, 0.1);
+        }
+        /* Hide all install buttons */
+        .btn-primary[href*="github.com/apps"],
+        .nav-btn-primary[href*="github.com/apps"],
+        a[href*="github.com/apps/stacksherpa"] {
+            display: none !important;
+        }
+        /* Dim the page slightly */
+        main {
+            opacity: 0.7;
+        }
+    </style>
+
     <!-- Vercel Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
 
@@ -32,6 +83,14 @@
 
 </head>
 <body>
+    <!-- ARCHIVED PROJECT BANNER -->
+    <div class="archived-banner">
+        This project has been archived (December 2025). The GitHub App is no longer active.
+    </div>
+
+    <!-- ARCHIVED STAMP WATERMARK -->
+    <div class="archived-stamp">ARCHIVED</div>
+
     <!-- Skip to main content for accessibility -->
     <a href="#hero" class="skip-to-main">Skip to main content</a>
 
